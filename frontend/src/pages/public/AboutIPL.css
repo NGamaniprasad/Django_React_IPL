@@ -1,0 +1,392 @@
+/* =========================================================
+   ABOUT IPL PAGE
+   ========================================================= */
+
+.about-ipl-page {
+    background: #f5f7fb;
+    color: #172033;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.about-ipl-hero {
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 25px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(37, 99, 235, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #07152f,
+            #0d2e5d,
+            #164a7c
+        );
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-ipl-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    right: -120px;
+    bottom: -180px;
+}
+
+.about-ipl-hero-content {
+    max-width: 800px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.about-ipl-hero-content span {
+    color: #65d3ff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-ipl-hero-content h1 {
+    font-size: clamp(45px, 6vw, 68px);
+
+    margin: 18px 0;
+
+    letter-spacing: -2px;
+}
+
+.about-ipl-hero-content p {
+    color: #d5e4f5;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.about-ipl-section {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 85px 25px;
+}
+
+.about-ipl-heading {
+    text-align: center;
+
+    margin-bottom: 42px;
+}
+
+.about-ipl-heading span {
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-ipl-heading h2 {
+    color: #111827;
+
+    font-size: 36px;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+   ========================================================= */
+
+.about-ipl-card {
+    background: white;
+
+    border: 1px solid #e4e9f1;
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.05);
+}
+
+.about-ipl-card p {
+    color: #5b667a;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    margin-bottom: 18px;
+}
+
+.about-ipl-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.about-ipl-feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.about-ipl-feature-card {
+    background: white;
+
+    border: 1px solid #e4e9f1;
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.about-ipl-feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 18px 40px rgba(37, 99, 235, 0.10);
+}
+
+.about-ipl-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #eff6ff;
+
+    font-size: 26px;
+
+    margin-bottom: 22px;
+}
+
+.about-ipl-feature-card h3 {
+    color: #172033;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.about-ipl-feature-card p {
+    color: #64748b;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   POINTS TABLE INFO
+   ========================================================= */
+
+.points-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.points-info-grid div {
+    background: #f8fafc;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.points-info-grid strong {
+    color: #2563eb;
+
+    font-size: 18px;
+}
+
+.points-info-grid span {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.points-note {
+    padding-top: 10px;
+}
+
+
+/* =========================================================
+   CRICKETHUB
+   ========================================================= */
+
+.cricket-hub-section {
+    padding-top: 40px;
+}
+
+.cricket-hub-card {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f1f7ff
+        );
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.about-ipl-disclaimer {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 25px 30px 80px;
+
+    text-align: center;
+}
+
+.about-ipl-disclaimer h3 {
+    color: #334155;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.about-ipl-disclaimer p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .about-ipl-feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .points-info-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .about-ipl-hero {
+        min-height: 330px;
+
+        padding: 60px 20px;
+    }
+
+    .about-ipl-hero-content h1 {
+        font-size: 44px;
+    }
+
+    .about-ipl-hero-content p {
+        font-size: 15px;
+    }
+
+    .about-ipl-section {
+        padding: 65px 20px;
+    }
+
+    .about-ipl-heading h2 {
+        font-size: 29px;
+    }
+
+    .about-ipl-card {
+        padding: 25px;
+    }
+
+    .about-ipl-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .points-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-ipl-feature-card {
+        padding: 27px;
+    }
+}

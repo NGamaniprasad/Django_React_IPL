@@ -1,0 +1,664 @@
+/* =========================================
+   CRICKETHUB - ADMIN TOURNAMENTS
+========================================= */
+
+.admin-tournaments-page,
+.admin-tournament-form-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* =========================================
+   TOURNAMENT LIST HEADER
+========================================= */
+
+.admin-tournaments-header {
+    background: #111827;
+    color: #ffffff;
+
+    padding: 22px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.admin-tournaments-header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.admin-tournaments-header p {
+    margin: 5px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   LIST CONTENT
+========================================= */
+
+.admin-tournaments-content {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+
+/* =========================================
+   TITLE SECTION
+========================================= */
+
+.tournaments-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.tournaments-title span {
+    display: block;
+
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.tournaments-title h2 {
+    margin: 8px 0;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.tournaments-title p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* =========================================
+   COUNT CARD
+========================================= */
+
+.tournaments-count {
+    min-width: 110px;
+
+    padding: 18px 25px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.07);
+}
+
+.tournaments-count strong {
+    display: block;
+
+    color: #2563eb;
+
+    font-size: 30px;
+}
+
+.tournaments-count small {
+    color: #64748b;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.admin-dashboard-button,
+.add-tournament-button {
+    display: inline-block;
+
+    padding: 10px 17px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.admin-dashboard-button {
+    background: #374151;
+    color: #ffffff;
+}
+
+.admin-dashboard-button:hover {
+    background: #4b5563;
+}
+
+.add-tournament-button {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.add-tournament-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.tournaments-error,
+.tournament-form-error {
+    padding: 14px 16px;
+
+    margin-bottom: 20px;
+
+    background: #fee2e2;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 8px;
+
+    color: #991b1b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.tournaments-table-card {
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 25px rgba(15, 23, 42, 0.07);
+}
+
+.tournaments-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.tournaments-table-wrapper table {
+    width: 100%;
+
+    min-width: 850px;
+
+    border-collapse: collapse;
+}
+
+.tournaments-table-wrapper th {
+    padding: 16px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.tournaments-table-wrapper td {
+    padding: 16px;
+
+    border-top: 1px solid #e5e7eb;
+
+    color: #374151;
+
+    font-size: 14px;
+}
+
+.tournaments-table-wrapper tbody tr {
+    transition: 0.2s ease;
+}
+
+.tournaments-table-wrapper tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================
+   TOURNAMENT ACTIONS
+========================================= */
+
+.tournament-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-tournament-button,
+.delete-tournament-button {
+    border: none;
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.edit-tournament-button {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-tournament-button:hover {
+    background: #bfdbfe;
+}
+
+.delete-tournament-button {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-tournament-button:hover {
+    background: #fecaca;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.tournament-status {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.status-upcoming {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-ongoing {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-completed {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.no-tournaments {
+    background: #ffffff;
+
+    padding: 70px 30px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+}
+
+.no-tournaments-icon {
+    font-size: 52px;
+}
+
+.no-tournaments h2 {
+    margin: 15px 0 8px;
+
+    font-size: 24px;
+}
+
+.no-tournaments p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* =========================================
+   FORM PAGE HEADER
+========================================= */
+
+.admin-tournament-form-header {
+    background: #111827;
+
+    color: #ffffff;
+
+    padding: 22px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.admin-tournament-form-header h1 {
+    margin: 0;
+
+    font-size: 26px;
+}
+
+.admin-tournament-form-header p {
+    margin: 5px 0 0;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+}
+
+.admin-tournament-form-header a {
+    padding: 10px 17px;
+
+    background: #374151;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.admin-tournament-form-header a:hover {
+    background: #4b5563;
+}
+
+
+/* =========================================
+   FORM CONTENT
+========================================= */
+
+.admin-tournament-form-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 45px 25px;
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.admin-tournament-form-card {
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(15, 23, 42, 0.08);
+}
+
+.admin-tournament-form-card h2 {
+    margin: 0 0 30px;
+
+    font-size: 28px;
+
+    color: #172033;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.tournament-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.tournament-form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.tournament-form-group label {
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.tournament-form-group input,
+.tournament-form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    color: #172033;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.tournament-form-group input:hover,
+.tournament-form-group select:hover {
+    border-color: #94a3b8;
+}
+
+.tournament-form-group input:focus,
+.tournament-form-group select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================
+   FORM ACTIONS
+========================================= */
+
+.tournament-form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+.save-tournament-button {
+    border: none;
+
+    padding: 13px 22px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-tournament-button:hover {
+    background: #1d4ed8;
+}
+
+.save-tournament-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+.cancel-tournament-button {
+    padding: 12px 20px;
+
+    background: #f3f4f6;
+
+    color: #374151;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.cancel-tournament-button:hover {
+    background: #e5e7eb;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.admin-tournaments-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f4f7fb;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .admin-tournaments-header,
+    .admin-tournament-form-header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .admin-tournaments-content {
+        padding: 30px 15px;
+    }
+
+    .tournaments-title {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .tournaments-count {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .admin-tournament-form-content {
+        padding: 30px 15px;
+    }
+
+    .admin-tournament-form-card {
+        padding: 25px 20px;
+    }
+
+    .tournament-form-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .save-tournament-button,
+    .cancel-tournament-button {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+}

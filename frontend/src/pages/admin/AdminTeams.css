@@ -1,0 +1,127 @@
+.admin-teams-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 50px;
+    background: #111827;
+    color: white;
+}
+
+.admin-header h1 {
+    margin: 0;
+}
+
+.admin-header p {
+    margin: 5px 0 0;
+    color: #cbd5e1;
+}
+
+.admin-back-button {
+    padding: 10px 18px;
+    background: white;
+    color: #111827;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.admin-teams-content {
+    padding: 40px 50px;
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-heading span {
+    font-size: 13px;
+    font-weight: bold;
+    color: #64748b;
+}
+
+.page-heading h2 {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.page-heading p {
+    color: #64748b;
+}
+
+.team-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.team-count strong {
+    font-size: 30px;
+}
+
+.team-count span {
+    color: #64748b;
+}
+
+.teams-table-card {
+    background: white;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.teams-table-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.teams-table-card th,
+.teams-table-card td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.teams-table-card th {
+    background: #f8fafc;
+    font-size: 14px;
+}
+
+.view-team-button {
+    display: inline-block;
+    padding: 7px 14px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.admin-error {
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #fee2e2;
+    color: #991b1b;
+    border-radius: 8px;
+}
+
+.empty-state,
+.admin-loading {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-state div {
+    font-size: 50px;
+}

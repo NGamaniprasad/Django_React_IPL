@@ -1,0 +1,442 @@
+.navbar {
+    width: 100%;
+    background: #101827;
+    color: white;
+}
+
+.navbar-container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.nav-links a,
+.nav-login {
+    color: #dce3ee;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-login:hover {
+    color: white;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 9px 13px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.user-register {
+    background: #ffffff;
+    color: #101827;
+}
+
+.admin-register {
+    background: #e5e7eb;
+    color: #101827;
+}
+
+.hero {
+    max-width: 1300px;
+    margin: auto;
+    min-height: 620px;
+    padding: 80px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero-badge,
+.section-heading span,
+.page-header span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #53647a;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.05;
+    margin: 18px 0;
+    color: #101827;
+}
+
+.hero-tagline {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.hero-description {
+    color: #5d6978;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: #101827;
+    color: white;
+}
+
+.secondary-button {
+    background: #e8edf3;
+    color: #101827;
+}
+
+.hero-visual {
+    width: 390px;
+    height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cricket-orbit {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #cdd5df;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cricket-ball {
+    font-size: 80px;
+}
+
+.orbit-text {
+    position: absolute;
+    top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.orbit-two {
+    bottom: 25px;
+    top: auto;
+    left: 5px;
+}
+
+.orbit-three {
+    bottom: 25px;
+    top: auto;
+    right: 5px;
+}
+
+.section {
+    max-width: 1300px;
+    margin: auto;
+    padding: 80px 24px;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin: 10px 0;
+    color: #101827;
+}
+
+.section-heading p {
+    color: #657285;
+}
+
+.info-card {
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(16, 24, 39, 0.06);
+}
+
+.info-card p,
+.page-content p {
+    line-height: 1.8;
+    color: #596779;
+}
+
+.teams-section {
+    background: #f8fafc;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.team-card {
+    background: white;
+    border: 1px solid #e3e8ee;
+    padding: 25px 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.team-icon {
+    font-size: 35px;
+}
+
+.team-card h3 {
+    font-size: 16px;
+    color: #172033;
+}
+
+.team-card p {
+    font-size: 13px;
+    color: #748092;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e3e8ee;
+}
+
+.feature-card > div {
+    font-size: 35px;
+}
+
+.feature-card p {
+    color: #657285;
+    line-height: 1.7;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 90px 24px;
+    background: #101827;
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: 38px;
+}
+
+.footer {
+    background: #0b111c;
+    color: #d7deea;
+    padding: 55px 24px 20px;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+}
+
+.footer-brand p {
+    color: #8e9aaa;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links h3 {
+    color: white;
+}
+
+.footer-links a {
+    color: #9ba6b7;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #252e3c;
+    text-align: center;
+    color: #7e8999;
+    font-size: 13px;
+}
+
+.simple-page {
+    min-height: 70vh;
+}
+
+.page-header {
+    padding: 80px 24px;
+    text-align: center;
+    background: #eef2f6;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    margin: 15px 0;
+    color: #101827;
+}
+
+.page-header p {
+    color: #657285;
+}
+
+.page-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 24px;
+}
+
+.page-content h2 {
+    margin-top: 35px;
+    color: #172033;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 70px 24px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form label {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 13px;
+    border: 1px solid #ccd4df;
+    border-radius: 7px;
+    outline: none;
+}
+
+.success-message {
+    color: #237a45;
+    font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-visual {
+        width: 280px;
+        height: 280px;
+    }
+
+    .cricket-orbit {
+        width: 230px;
+        height: 230px;
+    }
+
+    .nav-links,
+    .nav-actions {
+        flex-wrap: wrap;
+    }
+
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+}

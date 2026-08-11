@@ -1,0 +1,608 @@
+/* ================================
+   FIXTURES PAGE
+================================ */
+
+.fixtures-page {
+    min-height: 100vh;
+    background: #f4f6f9;
+    color: #172033;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.fixtures-header {
+    background: #111827;
+    color: #ffffff;
+    padding: 20px 7%;
+    border-bottom: 1px solid #273244;
+}
+
+.fixtures-brand a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.fixtures-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 7%;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.fixtures-nav a {
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 15px;
+    border-radius: 7px;
+    transition: 0.2s ease;
+}
+
+.fixtures-nav a:hover {
+    background: #f1f5f9;
+    color: #111827;
+}
+
+.fixtures-nav a.active {
+    background: #111827;
+    color: #ffffff;
+}
+
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.fixtures-content {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 40px 25px 60px;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   TITLE SECTION
+================================ */
+
+.fixtures-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.fixtures-title span {
+    display: inline-block;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.fixtures-title h1 {
+    margin: 0;
+    font-size: 38px;
+    line-height: 1.2;
+    color: #111827;
+}
+
+.fixtures-title p {
+    margin: 10px 0 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.fixture-count {
+    min-width: 110px;
+    padding: 18px 25px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fixture-count strong {
+    display: block;
+    font-size: 30px;
+    color: #111827;
+}
+
+.fixture-count small {
+    display: block;
+    margin-top: 3px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* ================================
+   FILTERS
+================================ */
+
+.fixtures-filters {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr)
+                           minmax(160px, 220px)
+                           minmax(160px, 220px)
+                           auto;
+    gap: 16px;
+    align-items: end;
+    background: #ffffff;
+    padding: 22px;
+    margin-bottom: 25px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    height: 43px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #172033;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.filter-group input::placeholder {
+    color: #94a3b8;
+}
+
+.clear-filter {
+    height: 43px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background: #111827;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.clear-filter:hover {
+    background: #374151;
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   ERROR
+================================ */
+
+.fixtures-error {
+    margin-bottom: 25px;
+    padding: 14px 16px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ================================
+   TABLE CARD
+================================ */
+
+.fixtures-table-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+}
+
+.fixtures-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.fixtures-table-wrapper table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+}
+
+.fixtures-table-wrapper thead {
+    background: #111827;
+}
+
+.fixtures-table-wrapper th {
+    padding: 15px 16px;
+    color: #ffffff;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.fixtures-table-wrapper td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #475569;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.fixtures-table-wrapper tbody tr {
+    transition: 0.2s ease;
+}
+
+.fixtures-table-wrapper tbody tr:hover {
+    background: #f8fafc;
+}
+
+.fixtures-table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ================================
+   MATCH COLUMN
+================================ */
+
+.fixtures-table-wrapper td:first-child {
+    min-width: 130px;
+}
+
+.fixtures-table-wrapper td:first-child strong {
+    display: block;
+    color: #111827;
+    font-size: 14px;
+}
+
+.fixtures-table-wrapper td:first-child small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* ================================
+   TEAMS
+================================ */
+
+.teams-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+}
+
+.teams-cell strong {
+    color: #172033;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.teams-cell span {
+    flex-shrink: 0;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* ================================
+   STATUS
+================================ */
+
+.fixture-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-upcoming {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-live {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status-completed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-cancelled {
+    background: #e5e7eb;
+    color: #475569;
+}
+
+.status-default {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+
+/* ================================
+   NO FIXTURES
+================================ */
+
+.no-fixtures {
+    background: #ffffff;
+    padding: 70px 25px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.no-fixtures div {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.no-fixtures h2 {
+    margin: 0 0 8px;
+    color: #111827;
+    font-size: 23px;
+}
+
+.no-fixtures p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.fixtures-loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6f9;
+    color: #111827;
+}
+
+.fixtures-logo {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.fixtures-loading h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+/* ================================
+   BACK BUTTON
+================================ */
+
+.fixtures-back {
+    margin-top: 25px;
+}
+
+.fixtures-back a {
+    display: inline-block;
+    color: #334155;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.fixtures-back a:hover {
+    color: #dc2626;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.fixtures-footer {
+    margin-top: auto;
+    padding: 25px 7%;
+    background: #111827;
+    color: #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.fixtures-footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.fixtures-footer div {
+    display: flex;
+    gap: 20px;
+}
+
+.fixtures-footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.fixtures-footer a:hover {
+    color: #ffffff;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+
+    .fixtures-content {
+        padding: 30px 20px 50px;
+    }
+
+    .fixtures-filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .clear-filter {
+        width: 100%;
+    }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+    .fixtures-header {
+        padding: 18px 20px;
+    }
+
+    .fixtures-brand a {
+        font-size: 22px;
+    }
+
+    .fixtures-nav {
+        padding: 10px 15px;
+        gap: 4px;
+        overflow-x: auto;
+    }
+
+    .fixtures-nav a {
+        flex-shrink: 0;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .fixtures-content {
+        padding: 25px 15px 45px;
+    }
+
+    .fixtures-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .fixtures-title h1 {
+        font-size: 31px;
+    }
+
+    .fixture-count {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .fixtures-filters {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .fixtures-table-wrapper table {
+        min-width: 900px;
+    }
+
+    .fixtures-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .fixtures-footer div {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 450px) {
+
+    .fixtures-title h1 {
+        font-size: 27px;
+    }
+
+    .fixtures-title p {
+        font-size: 13px;
+    }
+
+    .fixtures-nav a {
+        font-size: 11px;
+    }
+
+    .fixtures-table-wrapper th,
+    .fixtures-table-wrapper td {
+        padding: 13px 12px;
+    }
+}

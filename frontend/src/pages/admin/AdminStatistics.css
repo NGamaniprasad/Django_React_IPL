@@ -1,0 +1,439 @@
+/* =========================================================
+   ADMIN STATISTICS PAGE
+   ========================================================= */
+
+.admin-stat-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-stat-header {
+    min-height: 78px;
+    padding: 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111827;
+    color: white;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.admin-stat-header h1 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.admin-stat-header p {
+    margin: 5px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.admin-stat-home {
+    text-decoration: none;
+    color: white;
+
+    padding: 10px 18px;
+
+    border: 1px solid #475569;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.admin-stat-home:hover {
+    background: #1e293b;
+    border-color: #64748b;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.admin-stat-content {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 45px 30px 60px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.admin-stat-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.admin-stat-title span {
+    display: inline-block;
+
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.admin-stat-title h2 {
+    margin: 8px 0;
+
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.admin-stat-title p {
+    margin: 0;
+
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-stat-btn {
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.refresh-stat-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.admin-stat-error {
+    margin-bottom: 25px;
+    padding: 14px 18px;
+
+    background: #fef2f2;
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLE CARD
+   ========================================================= */
+
+.admin-stat-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
+}
+
+.admin-stat-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.admin-stat-table-wrapper table {
+    width: 100%;
+    min-width: 1100px;
+
+    border-collapse: collapse;
+}
+
+.admin-stat-table-wrapper thead {
+    background: #f8fafc;
+}
+
+.admin-stat-table-wrapper th {
+    padding: 16px 14px;
+
+    color: #475569;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-align: left;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    white-space: nowrap;
+}
+
+.admin-stat-table-wrapper td {
+    padding: 17px 14px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #edf2f7;
+
+    white-space: nowrap;
+}
+
+.admin-stat-table-wrapper tbody tr {
+    transition: background 0.15s ease;
+}
+
+.admin-stat-table-wrapper tbody tr:hover {
+    background: #f8fbff;
+}
+
+.admin-stat-table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-stat-table-wrapper td strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.stat-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-stat-btn,
+.delete-stat-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 65px;
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+
+/* EDIT */
+
+.edit-stat-btn {
+    background: #eff6ff;
+    color: #2563eb;
+
+    border: 1px solid #bfdbfe;
+}
+
+.edit-stat-btn:hover {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+
+/* DELETE */
+
+.delete-stat-btn {
+    background: #fef2f2;
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+}
+
+.delete-stat-btn:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.admin-stat-empty {
+    padding: 80px 20px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+}
+
+.admin-stat-empty div {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.admin-stat-empty h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+}
+
+.admin-stat-empty p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+.admin-stat-back {
+    margin-top: 25px;
+}
+
+.admin-stat-back a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-stat-back a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.admin-stat-loading {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4f7fb;
+
+    color: #172033;
+}
+
+.admin-stat-loading div {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.admin-stat-loading h2 {
+    margin: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .admin-stat-header {
+        padding: 18px 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .admin-stat-header h1 {
+        font-size: 21px;
+    }
+
+    .admin-stat-content {
+        padding: 30px 15px 45px;
+    }
+
+    .admin-stat-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .admin-stat-title h2 {
+        font-size: 28px;
+    }
+
+    .refresh-stat-btn {
+        width: 100%;
+    }
+
+    .admin-stat-card {
+        border-radius: 10px;
+    }
+
+    .stat-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .edit-stat-btn,
+    .delete-stat-btn {
+        width: 70px;
+    }
+}

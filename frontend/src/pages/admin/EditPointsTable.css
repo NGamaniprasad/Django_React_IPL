@@ -1,0 +1,222 @@
+.edit-points-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.edit-points-header {
+    background: #111827;
+    color: white;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.edit-points-header h1 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.edit-points-header p {
+    margin: 6px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.edit-points-back {
+    padding: 11px 18px;
+    border-radius: 8px;
+    background: #374151;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.edit-points-back:hover {
+    background: #4b5563;
+}
+
+.edit-points-content {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 45px 0 70px;
+}
+
+.edit-points-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+.edit-points-title {
+    margin-bottom: 30px;
+}
+
+.edit-points-title span {
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.edit-points-title h2 {
+    margin: 8px 0;
+    font-size: 32px;
+    color: #111827;
+}
+
+.edit-points-title p {
+    margin: 0;
+    color: #64748b;
+}
+
+.edit-points-error {
+    margin-bottom: 25px;
+    padding: 14px 17px;
+    border-radius: 8px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.edit-points-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #111827;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.update-points-btn,
+.cancel-points-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.update-points-btn {
+    border: none;
+    background: #111827;
+    color: white;
+}
+
+.update-points-btn:hover {
+    background: #1f2937;
+}
+
+.update-points-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cancel-points-btn {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.cancel-points-btn:hover {
+    background: #d1d5db;
+}
+
+.edit-points-loading {
+    min-height: 100vh;
+    background: #f4f7fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-points-loading div {
+    font-size: 55px;
+}
+
+.edit-points-loading h2 {
+    color: #111827;
+}
+
+@media (max-width: 700px) {
+
+    .edit-points-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-points-content {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    .edit-points-card {
+        padding: 25px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .update-points-btn,
+    .cancel-points-btn {
+        text-align: center;
+    }
+}

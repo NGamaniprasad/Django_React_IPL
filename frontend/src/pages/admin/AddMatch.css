@@ -1,0 +1,388 @@
+/* ================================
+   ADD MATCH PAGE
+================================ */
+
+.add-match-page {
+    min-height: 100vh;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.add-match-header {
+    background: #111827;
+    color: white;
+
+    padding: 22px 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 4px solid #dc2626;
+}
+
+.add-match-header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.add-match-header p {
+    margin: 5px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.add-match-header a {
+    text-decoration: none;
+    color: white;
+
+    background: #dc2626;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.add-match-header a:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.add-match-content {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 0 25px;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.add-match-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e5e7eb;
+}
+
+.add-match-card h2 {
+    margin: 0 0 28px;
+
+    font-size: 25px;
+
+    color: #111827;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 18px;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+.add-match-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #dc2626;
+
+    box-shadow:
+        0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 90px;
+
+    font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* ================================
+   ERROR
+================================ */
+
+.add-match-error {
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+
+    padding: 13px 16px;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.save-match-button {
+    border: none;
+
+    background: #dc2626;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-match-button:hover {
+    background: #b91c1c;
+
+    transform: translateY(-1px);
+}
+
+.save-match-button:disabled {
+    background: #9ca3af;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.cancel-match-button {
+    text-decoration: none;
+
+    background: #e5e7eb;
+
+    color: #374151;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.cancel-match-button:hover {
+    background: #d1d5db;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.add-match-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f4f6f9;
+
+    color: #374151;
+}
+
+.add-match-loading h2 {
+    font-size: 22px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+    .add-match-header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .add-match-header a {
+        width: fit-content;
+    }
+
+    .add-match-content {
+        margin: 25px auto;
+
+        padding: 0 15px;
+    }
+
+    .add-match-card {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .save-match-button,
+    .cancel-match-button {
+        text-align: center;
+
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+    .add-match-header h1 {
+        font-size: 21px;
+    }
+
+    .add-match-card h2 {
+        font-size: 21px;
+    }
+
+    .add-match-card {
+        padding: 18px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 11px;
+    }
+}

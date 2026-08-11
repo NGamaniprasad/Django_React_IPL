@@ -1,0 +1,133 @@
+.points-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+.points-header {
+    padding: 22px 60px;
+    background: #111827;
+}
+
+.points-header a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.points-nav {
+    display: flex;
+    gap: 30px;
+    padding: 18px 60px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.points-nav a {
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.points-nav a:hover,
+.points-nav a.active {
+    color: #2563eb;
+}
+
+.points-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 30px;
+}
+
+.points-hero {
+    margin-bottom: 40px;
+}
+
+.points-hero span {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #2563eb;
+}
+
+.points-hero h1 {
+    margin: 10px 0;
+    font-size: 42px;
+}
+
+.points-hero p {
+    color: #6b7280;
+    font-size: 17px;
+}
+
+.points-empty {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 70px 30px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+.points-logo {
+    font-size: 55px;
+}
+
+.points-empty h2 {
+    margin: 18px 0 10px;
+}
+
+.points-empty p {
+    color: #6b7280;
+}
+
+.points-back {
+    margin-top: 30px;
+}
+
+.points-back a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.points-footer {
+    margin-top: 40px;
+    padding: 25px 60px;
+    background: #111827;
+    color: #d1d5db;
+    display: flex;
+    justify-content: space-between;
+}
+
+.points-footer a {
+    color: #d1d5db;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+@media (max-width: 800px) {
+
+    .points-nav {
+        padding: 15px 25px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .points-header {
+        padding: 20px 25px;
+    }
+
+    .points-footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px;
+    }
+
+    .points-footer a {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}

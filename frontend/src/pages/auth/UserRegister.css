@@ -1,0 +1,404 @@
+
+/* ================================
+   CricketHub - User Registration
+   ================================ */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(5, 32, 74, 0.95),
+            rgba(0, 102, 70, 0.92)
+        ),
+        linear-gradient(45deg, #062b5c, #008f5a);
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   Registration Card
+   ================================ */
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 35px 40px;
+    background: #ffffff;
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    box-sizing: border-box;
+    animation: cardAppear 0.5s ease;
+}
+
+
+/* ================================
+   Header
+   ================================ */
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-logo {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #006b45,
+        #00a86b
+    );
+
+    border-radius: 50%;
+
+    font-size: 32px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 128, 85, 0.25);
+}
+
+.auth-header h1 {
+    margin: 0 0 8px;
+
+    color: #092b4c;
+
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.auth-header p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   Error / Success Messages
+   ================================ */
+
+.auth-error,
+.auth-success {
+    padding: 12px 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.auth-error {
+    color: #a51d2d;
+
+    background: #fff0f1;
+
+    border: 1px solid #f3b4bb;
+}
+
+.auth-success {
+    color: #126b3a;
+
+    background: #edfff5;
+
+    border: 1px solid #a9e6c2;
+}
+
+
+/* ================================
+   Form
+   ================================ */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #263746;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ================================
+   Input Fields
+   ================================ */
+
+.form-group input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d5dce3;
+
+    border-radius: 8px;
+
+    background: #fafbfc;
+
+    color: #222;
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #9aa3ad;
+}
+
+.form-group input:hover {
+    border-color: #aeb9c4;
+}
+
+.form-group input:focus {
+    background: #ffffff;
+
+    border-color: #008f5a;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 143, 90, 0.12);
+}
+
+
+/* ================================
+   Submit Button
+   ================================ */
+
+.auth-button {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #006b45,
+        #00a86b
+    );
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.auth-button:hover {
+    background: linear-gradient(
+        135deg,
+        #005a3a,
+        #008f5a
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 128, 85, 0.25);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-button:focus-visible {
+    outline: 3px solid rgba(0, 143, 90, 0.25);
+    outline-offset: 2px;
+}
+
+
+/* ================================
+   Footer
+   ================================ */
+
+.auth-footer {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+
+    text-align: center;
+}
+
+.auth-footer p {
+    display: inline;
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.auth-footer a {
+    margin-left: 5px;
+
+    color: #008f5a;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.auth-footer a:hover {
+    color: #005a3a;
+    text-decoration: underline;
+}
+
+
+/* ================================
+   Back Link
+   ================================ */
+
+.auth-back {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.auth-back a {
+    color: #687783;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.auth-back a:hover {
+    color: #008f5a;
+}
+
+
+/* ================================
+   Animation
+   ================================ */
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        padding: 25px 15px;
+        align-items: flex-start;
+    }
+
+    .auth-card {
+        margin-top: 20px;
+        padding: 30px 22px;
+        border-radius: 14px;
+    }
+
+    .auth-header h1 {
+        font-size: 23px;
+    }
+
+    .auth-logo {
+        width: 58px;
+        height: 58px;
+        font-size: 28px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group input {
+        padding: 12px;
+    }
+
+    .auth-button {
+        padding: 13px;
+    }
+}
+
+
+/* ================================
+   Very Small Screens
+   ================================ */
+
+@media (max-width: 360px) {
+
+    .auth-page {
+        padding: 15px 10px;
+    }
+
+    .auth-card {
+        padding: 25px 17px;
+    }
+
+    .auth-header h1 {
+        font-size: 21px;
+    }
+
+    .auth-header p {
+        font-size: 13px;
+    }
+}

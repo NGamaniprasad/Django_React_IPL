@@ -1,0 +1,389 @@
+/* =========================================================
+   EDIT STATISTICS PAGE
+   ========================================================= */
+
+.edit-stat-page {
+    min-height: 100vh;
+
+    background: #f4f7fb;
+
+    color: #172033;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.edit-stat-header {
+    min-height: 78px;
+
+    padding: 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #111827;
+    color: white;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.edit-stat-header h1 {
+    margin: 0;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.edit-stat-header p {
+    margin: 5px 0 0;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+}
+
+.edit-stat-back-btn {
+    text-decoration: none;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border: 1px solid #475569;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.edit-stat-back-btn:hover {
+    background: #1e293b;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.edit-stat-content {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 50px 25px 70px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.edit-stat-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    padding: 35px;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.edit-stat-title {
+    margin-bottom: 30px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.edit-stat-title span {
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.edit-stat-title h2 {
+    margin: 8px 0 5px;
+
+    font-size: 30px;
+}
+
+.edit-stat-title p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.edit-stat-error {
+    margin-bottom: 25px;
+
+    padding: 14px 17px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.edit-stat-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 13px;
+
+    background: white;
+
+    color: #172033;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.form-group input:hover {
+    border-color: #94a3b8;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* Remove number input arrows in Chrome */
+
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+    margin: 0;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.edit-stat-actions {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e2e8f0;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+
+/* CANCEL */
+
+.cancel-stat-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 22px;
+
+    background: white;
+
+    color: #475569;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.cancel-stat-btn:hover {
+    background: #f8fafc;
+
+    border-color: #94a3b8;
+}
+
+
+/* SAVE */
+
+.save-stat-btn {
+    padding: 11px 24px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-stat-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+.save-stat-btn:disabled {
+    background: #93c5fd;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.edit-stat-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f4f7fb;
+
+    color: #172033;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .edit-stat-header {
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .edit-stat-header h1 {
+        font-size: 21px;
+    }
+
+    .edit-stat-content {
+        padding: 30px 15px 50px;
+    }
+
+    .edit-stat-card {
+        padding: 22px;
+
+        border-radius: 12px;
+    }
+
+    .edit-stat-title h2 {
+        font-size: 25px;
+    }
+
+    .edit-stat-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .edit-stat-actions {
+        flex-direction: column;
+    }
+
+    .cancel-stat-btn,
+    .save-stat-btn {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+}

@@ -1,0 +1,468 @@
+/* =========================================
+   CRICKETHUB ADMIN - POINTS TABLE
+========================================= */
+
+.admin-points-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.admin-points-header {
+    background: #111827;
+    color: white;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-points-header h1 {
+    margin: 0;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.admin-points-header p {
+    margin: 6px 0 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.admin-points-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =========================================
+   HEADER BUTTONS
+========================================= */
+
+.points-dashboard-btn,
+.points-add-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.points-dashboard-btn {
+    background: #374151;
+    color: white;
+}
+
+.points-dashboard-btn:hover {
+    background: #4b5563;
+}
+
+.points-add-btn {
+    background: #ffffff;
+    color: #111827;
+}
+
+.points-add-btn:hover {
+    background: #e5e7eb;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.admin-points-content {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 45px 0 70px;
+}
+
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.points-page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.points-page-title span {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.points-page-title h2 {
+    margin: 8px 0;
+    color: #111827;
+    font-size: 38px;
+}
+
+.points-page-title p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   COUNT
+========================================= */
+
+.points-count {
+    min-width: 110px;
+    padding: 18px 25px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.points-count strong {
+    display: block;
+    color: #111827;
+    font-size: 30px;
+}
+
+.points-count small {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.points-error {
+    margin-bottom: 25px;
+    padding: 14px 18px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TABLE CARD
+========================================= */
+
+.points-table-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.points-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.points-table-wrapper table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+
+/* =========================================
+   TABLE HEADER
+========================================= */
+
+.points-table-wrapper th {
+    padding: 16px 15px;
+    background: #111827;
+    color: white;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   TABLE BODY
+========================================= */
+
+.points-table-wrapper td {
+    padding: 17px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #334155;
+    font-size: 14px;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.points-table-wrapper tbody tr {
+    transition: background 0.2s ease;
+}
+
+.points-table-wrapper tbody tr:hover {
+    background: #f8fafc;
+}
+
+.points-table-wrapper tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   TEAM / TOURNAMENT TEXT
+========================================= */
+
+.points-table-wrapper td strong {
+    display: block;
+    color: #111827;
+    font-size: 14px;
+}
+
+.points-table-wrapper td small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   POSITION
+========================================= */
+
+.position-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+    color: #111827;
+
+    font-weight: 800;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   WINS / LOSSES
+========================================= */
+
+.wins {
+    color: #15803d !important;
+    font-weight: 800;
+}
+
+.losses {
+    color: #dc2626 !important;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   POINTS
+========================================= */
+
+.points-value {
+    display: inline-block !important;
+
+    min-width: 42px;
+
+    padding: 7px 11px;
+
+    background: #111827;
+    color: white !important;
+
+    border-radius: 7px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.points-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+    border-radius: 7px;
+    padding: 8px 13px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.edit-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.edit-btn:hover {
+    background: #bfdbfe;
+}
+
+.delete-btn {
+    border: none;
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.points-empty {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 75px 25px;
+    text-align: center;
+}
+
+.points-empty > div {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.points-empty h2 {
+    margin: 0 0 10px;
+    color: #111827;
+    font-size: 25px;
+}
+
+.points-empty p {
+    margin: 0 0 25px;
+    color: #64748b;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.points-loading {
+    min-height: 100vh;
+    background: #f4f7fb;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.points-loading-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.points-loading h2 {
+    margin: 0;
+    color: #111827;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .admin-points-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-points-header-actions {
+        width: 100%;
+    }
+
+    .points-dashboard-btn,
+    .points-add-btn {
+        text-align: center;
+    }
+
+    .admin-points-content {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    .points-page-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .points-count {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-points-header h1 {
+        font-size: 22px;
+    }
+
+    .admin-points-header-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .points-dashboard-btn,
+    .points-add-btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .points-page-title h2 {
+        font-size: 30px;
+    }
+
+    .points-empty {
+        padding: 55px 20px;
+    }
+}

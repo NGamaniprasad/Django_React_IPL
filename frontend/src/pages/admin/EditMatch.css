@@ -1,0 +1,190 @@
+.edit-match-page {
+    min-height: 100vh;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+.edit-match-header {
+    background: #111827;
+    color: white;
+    padding: 22px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #dc2626;
+}
+
+.edit-match-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.edit-match-header p {
+    margin: 5px 0 0;
+    color: #cbd5e1;
+}
+
+.edit-match-header a {
+    color: white;
+    background: #dc2626;
+    padding: 11px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.edit-match-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 25px;
+}
+
+.edit-match-card {
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.edit-match-card h2 {
+    margin-top: 0;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-match-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.edit-match-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    padding: 13px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 22px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.update-match-button {
+    border: none;
+    background: #dc2626;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.update-match-button:hover {
+    background: #b91c1c;
+}
+
+.update-match-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.cancel-match-button {
+    background: #e5e7eb;
+    color: #374151;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.edit-match-loading {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6f9;
+}
+
+@media (max-width: 768px) {
+
+    .edit-match-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .edit-match-content {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .edit-match-card {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .update-match-button,
+    .cancel-match-button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}

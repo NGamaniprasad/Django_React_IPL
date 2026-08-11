@@ -1,0 +1,697 @@
+/* =========================================================
+   CRICKETHUB - ADMIN USERS
+   ========================================================= */
+
+.admin-users-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.users-header {
+    background: linear-gradient(
+        135deg,
+        #07152f,
+        #0d2a5c
+    );
+
+    color: white;
+
+    padding: 35px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.users-header > div {
+    flex: 1;
+}
+
+.users-label {
+    display: inline-block;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #69a8ff;
+
+    margin-bottom: 10px;
+}
+
+.users-header h1 {
+    margin: 0 0 8px;
+
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.users-header p {
+    margin: 0;
+
+    color: #c7d5eb;
+
+    font-size: 15px;
+}
+
+.back-dashboard {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+
+    color: white;
+    background: rgba(255,255,255,0.08);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.back-dashboard:hover {
+    background: white;
+    color: #0b2550;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.users-main {
+    width: 86%;
+    max-width: 1400px;
+
+    margin: 35px auto 60px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.users-error {
+    margin-bottom: 20px;
+
+    padding: 15px 18px;
+
+    background: #fff1f1;
+
+    border: 1px solid #ffcaca;
+
+    border-left: 5px solid #dc3545;
+
+    border-radius: 8px;
+
+    color: #a61b1b;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   USERS CARD
+   ========================================================= */
+
+.users-card {
+    background: white;
+
+    border: 1px solid #e1e7ef;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(17, 35, 65, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.users-card-header {
+    padding: 24px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #e7ebf1;
+
+    background: #fbfcfe;
+}
+
+.users-card-header h2 {
+    margin: 0 0 5px;
+
+    font-size: 21px;
+
+    color: #172033;
+}
+
+.users-card-header p {
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-btn {
+    border: none;
+
+    background: #0d6efd;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.refresh-btn:hover {
+    background: #0958c7;
+
+    transform: translateY(-1px);
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.users-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.users-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 950px;
+}
+
+.users-table thead {
+    background: #f0f4f9;
+}
+
+.users-table th {
+    padding: 15px 18px;
+
+    text-align: left;
+
+    color: #334155;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid #dce3ec;
+}
+
+.users-table td {
+    padding: 16px 18px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+.users-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.users-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   USERNAME
+   ========================================================= */
+
+.users-table td strong {
+    color: #172033;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ROLE
+   ========================================================= */
+
+.role-admin,
+.role-user {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.role-admin {
+    color: #7c2d12;
+
+    background: #ffedd5;
+
+    border: 1px solid #fed7aa;
+}
+
+.role-user {
+    color: #075985;
+
+    background: #e0f2fe;
+
+    border: 1px solid #bae6fd;
+}
+
+
+/* =========================================================
+   ACTIVE / INACTIVE
+   ========================================================= */
+
+.user-active,
+.user-inactive {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.user-active::before,
+.user-inactive::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+}
+
+.user-active {
+    background: #eaf8ef;
+
+    color: #16703a;
+
+    border: 1px solid #bde7ca;
+}
+
+.user-active::before {
+    background: #22c55e;
+}
+
+.user-inactive {
+    background: #fff1f2;
+
+    color: #b42318;
+
+    border: 1px solid #fecdd3;
+}
+
+.user-inactive::before {
+    background: #ef4444;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+   ========================================================= */
+
+.delete-user-btn {
+    border: none;
+
+    background: #dc3545;
+
+    color: white;
+
+    padding: 8px 13px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    white-space: nowrap;
+}
+
+.delete-user-btn:hover {
+    background: #b91c2b;
+
+    transform: translateY(-1px);
+}
+
+.delete-user-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROTECTED USER
+   ========================================================= */
+
+.protected-user {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border-radius: 6px;
+
+    background: #eef2f7;
+
+    color: #64748b;
+
+    border: 1px solid #dce3eb;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NO USERS
+   ========================================================= */
+
+.no-users {
+    padding: 80px 20px;
+
+    text-align: center;
+}
+
+.no-users-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    opacity: 0.75;
+}
+
+.no-users h3 {
+    margin: 0 0 8px;
+
+    font-size: 21px;
+
+    color: #273449;
+}
+
+.no-users p {
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.users-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #334155;
+}
+
+.users-loading-icon {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+    animation: usersPulse 1.2s infinite;
+}
+
+.users-loading h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+@keyframes usersPulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.users-back {
+    margin-top: 25px;
+}
+
+.users-back a {
+    display: inline-block;
+
+    color: #0d6efd;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.users-back a:hover {
+    color: #084298;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.users-footer {
+    border-top: 1px solid #e1e7ef;
+
+    background: white;
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #718096;
+
+    font-size: 13px;
+}
+
+.users-footer p {
+    margin: 0;
+}
+
+.users-footer div {
+    display: flex;
+
+    gap: 20px;
+}
+
+.users-footer a {
+    color: #64748b;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.users-footer a:hover {
+    color: #0d6efd;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .users-header {
+        padding: 28px 5%;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .back-dashboard {
+        align-self: flex-start;
+    }
+
+    .users-main {
+        width: 92%;
+
+        margin-top: 25px;
+    }
+
+    .users-card-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+
+    .users-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .users-header h1 {
+        font-size: 27px;
+    }
+
+    .users-header p {
+        font-size: 13px;
+    }
+
+    .users-main {
+        width: 94%;
+    }
+
+    .users-card-header {
+        padding: 20px;
+    }
+
+    .users-table th,
+    .users-table td {
+        padding: 13px 14px;
+    }
+
+    .users-footer {
+        padding: 22px 5%;
+    }
+
+    .users-footer div {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px 18px;
+    }
+}

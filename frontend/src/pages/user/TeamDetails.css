@@ -1,0 +1,342 @@
+.team-details-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.team-details-header {
+    min-height: 70px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 1px solid #e7eaf0;
+}
+
+.team-details-brand a {
+    text-decoration: none;
+    color: #172033;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.team-details-actions {
+    display: flex;
+    gap: 22px;
+}
+
+.team-details-actions a {
+    text-decoration: none;
+    color: #596273;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.team-details-nav {
+    min-height: 55px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    background: white;
+    border-bottom: 1px solid #e7eaf0;
+    overflow-x: auto;
+}
+
+.team-details-nav a {
+    white-space: nowrap;
+    text-decoration: none;
+    color: #697386;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.team-details-nav a:hover {
+    color: #172033;
+}
+
+.team-details-content {
+    width: 88%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 35px 0 65px;
+}
+
+.team-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: #7a8495;
+    font-size: 13px;
+}
+
+.team-breadcrumb a {
+    color: #4e5c70;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.team-hero {
+    min-height: 280px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    border-radius: 18px;
+    background: #172033;
+    color: white;
+}
+
+.team-hero-logo {
+    width: 210px;
+    height: 210px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.team-hero-logo img {
+    width: 165px;
+    height: 165px;
+    object-fit: contain;
+}
+
+.team-hero-logo div {
+    font-size: 70px;
+}
+
+.team-label {
+    color: #aeb8ca;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.team-hero-info h1 {
+    margin: 8px 0 3px;
+    font-size: 36px;
+}
+
+.team-short {
+    color: #b9c3d3;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.team-hero-info p {
+    max-width: 600px;
+    margin-top: 20px;
+    color: #cbd2df;
+    line-height: 1.6;
+}
+
+.team-information {
+    margin-top: 30px;
+    padding: 28px;
+    background: white;
+    border: 1px solid #e4e8ef;
+    border-radius: 16px;
+}
+
+.section-heading span {
+    color: #687386;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    margin: 7px 0 24px;
+    font-size: 24px;
+}
+
+.information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.information-card {
+    padding: 18px;
+    border-radius: 10px;
+    background: #f7f8fb;
+}
+
+.information-card span {
+    display: block;
+    margin-bottom: 7px;
+    color: #788294;
+    font-size: 12px;
+}
+
+.information-card strong {
+    font-size: 15px;
+}
+
+.players-action {
+    margin-top: 25px;
+    padding: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: white;
+    border: 1px solid #e4e8ef;
+    border-radius: 16px;
+}
+
+.players-action > div > span {
+    color: #687386;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.players-action h2 {
+    margin: 7px 0;
+    font-size: 22px;
+}
+
+.players-action p {
+    margin: 0;
+    color: #737d8e;
+    font-size: 13px;
+}
+
+.players-button {
+    flex-shrink: 0;
+    min-width: 145px;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 8px;
+    background: #172033;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.players-button:hover {
+    background: #263249;
+}
+
+.back-section {
+    margin-top: 25px;
+}
+
+.back-section a {
+    color: #596273;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.team-details-footer {
+    padding: 25px 6%;
+    background: white;
+    border-top: 1px solid #e7eaf0;
+    text-align: center;
+    color: #737d8e;
+    font-size: 12px;
+}
+
+.team-details-footer p {
+    margin: 5px;
+}
+
+.team-details-footer div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-details-footer a {
+    color: #596273;
+    text-decoration: none;
+}
+
+.team-details-loading,
+.team-details-error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7fb;
+}
+
+.team-details-loading > div {
+    font-size: 50px;
+}
+
+.team-details-error-page .error-icon {
+    font-size: 45px;
+}
+
+.team-details-error-page a {
+    margin-top: 15px;
+    color: #172033;
+    font-weight: 600;
+}
+
+@media (max-width: 750px) {
+
+    .team-details-header {
+        padding: 15px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .team-details-nav {
+        padding: 12px 5%;
+    }
+
+    .team-details-content {
+        width: 90%;
+    }
+
+    .team-hero {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .team-hero-logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .team-hero-logo img {
+        width: 115px;
+        height: 115px;
+    }
+
+    .team-hero-info h1 {
+        font-size: 28px;
+    }
+
+    .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .players-action {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .players-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
