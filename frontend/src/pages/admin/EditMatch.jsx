@@ -1,3 +1,6 @@
+
+
+
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -6,6 +9,7 @@ import "./EditMatch.css";
 const API_BASE_URL = "http://127.0.0.1:8000/api";
 
 function EditMatch() {
+
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -36,7 +40,9 @@ function EditMatch() {
     }, [id]);
 
     const loadData = async () => {
-        const token = localStorage.getItem("access_token");
+
+        const token =
+            localStorage.getItem("access_token");
 
         if (!token) {
             navigate("/admin-login");
@@ -44,6 +50,7 @@ function EditMatch() {
         }
 
         try {
+
             setLoading(true);
             setError("");
 
@@ -56,6 +63,7 @@ function EditMatch() {
                 tournamentResponse,
                 teamResponse,
             ] = await Promise.all([
+
                 axios.get(
                     `${API_BASE_URL}/matches/${id}/`,
                     { headers }
@@ -72,45 +80,105 @@ function EditMatch() {
                 ),
             ]);
 
-            const match = matchResponse.data;
+            const match =
+                matchResponse.data;
 
-            const tournamentData = tournamentResponse.data;
-            const teamData = teamResponse.data;
+            const tournamentData =
+                tournamentResponse.data;
 
-            setTournaments(
+            const teamData =
+                teamResponse.data;
+
+            const tournamentList =
                 Array.isArray(tournamentData)
                     ? tournamentData
-                    : tournamentData.results || []
-            );
+                    : tournamentData.results || [];
 
-            setTeams(
+            const teamList =
                 Array.isArray(teamData)
                     ? teamData
-                    : teamData.results || []
-            );
+                    : teamData.results || [];
+
+            setTournaments(tournamentList);
+            setTeams(teamList);
+
+            /*
+             * Always convert IDs to strings
+             * because select values are strings.
+             */
 
             setFormData({
-                tournament: match.tournament || "",
-                team1: match.team1 || "",
-                team2: match.team2 || "",
-                venue: match.venue || "",
-                match_number: match.match_number || "",
-                match_date: match.match_date || "",
-                match_time: match.match_time || "",
-                status: match.status || "UPCOMING",
-                winner: match.winner || "",
-                team1_score: match.team1_score ?? 0,
-                team2_score: match.team2_score ?? 0,
-                result: match.result || "",
+                tournament:
+                    match.tournament
+                        ? String(match.tournament)
+                        : "",
+
+                team1:
+                    match.team1
+                        ? String(match.team1)
+                        : "",
+
+                team2:
+                    match.team2
+                        ? String(match.team2)
+                        : "",
+
+                venue:
+                    match.venue || "",
+
+                match_number:
+                    match.match_number
+                        ? String(match.match_number)
+                        : "",
+
+                match_date:
+                    match.match_date || "",
+
+                match_time:
+                    match.match_time
+                        ? match.match_time.substring(0, 5)
+                        : "",
+
+                status:
+                    match.status || "UPCOMING",
+
+                winner:
+                    match.winner
+                        ? String(match.winner)
+                        : "",
+
+                team1_score:
+                    match.team1_score ?? 0,
+
+                team2_score:
+                    match.team2_score ?? 0,
+
+                result:
+                    match.result || "",
             });
 
         } catch (err) {
-            console.error("Load match error:", err);
 
-            if (err.response?.status === 401) {
-                localStorage.removeItem("access_token");
-                localStorage.removeItem("refresh_token");
-                localStorage.removeItem("admin_logged_in");
+            console.error(
+                "Load match error:",
+                err
+            );
+
+            if (
+                err.response?.status === 401
+            ) {
+
+                localStorage.removeItem(
+                    "access_token"
+                );
+
+                localStorage.removeItem(
+                    "refresh_token"
+                );
+
+                localStorage.removeItem(
+                    "admin_logged_in"
+                );
 
                 navigate("/admin-login");
                 return;
@@ -122,30 +190,88 @@ function EditMatch() {
             );
 
         } finally {
+
             setLoading(false);
         }
     };
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
 
-        setFormData((previous) => ({
-            ...previous,
-            [name]: value,
-        }));
+        const {
+            name,
+            value,
+        } = event.target;
+
+        setFormData((previous) => {
+
+            const updated = {
+                ...previous,
+                [name]: value,
+            };
+
+            /*
+             * If Team 1 or Team 2 changes,
+             * make sure old winner is still valid.
+             */
+
+            if (
+                name === "team1" ||
+                name === "team2"
+            ) {
+
+                if (
+                    updated.winner &&
+                    updated.winner !== updated.team1 &&
+                    updated.winner !== updated.team2
+                ) {
+                    updated.winner = "";
+                }
+            }
+
+            return updated;
+        });
 
         setError("");
     };
 
+    const getTeamName = (teamId) => {
+
+        if (!teamId) {
+            return "";
+        }
+
+        const team = teams.find(
+            (item) =>
+                String(item.id) === String(teamId)
+        );
+
+        if (!team) {
+            return `Team ${teamId}`;
+        }
+
+        return (
+            team.name ||
+            team.full_name ||
+            team.short_name ||
+            `Team ${team.id}`
+        );
+    };
+
     const handleSubmit = async (event) => {
+
         event.preventDefault();
 
-        const token = localStorage.getItem("access_token");
+        const token =
+            localStorage.getItem("access_token");
 
         if (!token) {
             navigate("/admin-login");
             return;
         }
+
+        // -----------------------------
+        // FRONTEND VALIDATION
+        // -----------------------------
 
         if (!formData.tournament) {
             setError("Tournament is required.");
@@ -162,8 +288,13 @@ function EditMatch() {
             return;
         }
 
-        if (formData.team1 === formData.team2) {
-            setError("Team 1 and Team 2 cannot be the same.");
+        if (
+            String(formData.team1) ===
+            String(formData.team2)
+        ) {
+            setError(
+                "Team 1 and Team 2 cannot be the same."
+            );
             return;
         }
 
@@ -173,17 +304,23 @@ function EditMatch() {
         }
 
         if (!formData.match_number) {
-            setError("Match number is required.");
+            setError(
+                "Match number is required."
+            );
             return;
         }
 
         if (!formData.match_date) {
-            setError("Match date is required.");
+            setError(
+                "Match date is required."
+            );
             return;
         }
 
         if (!formData.match_time) {
-            setError("Match time is required.");
+            setError(
+                "Match time is required."
+            );
             return;
         }
 
@@ -199,8 +336,10 @@ function EditMatch() {
 
         if (
             formData.winner &&
-            formData.winner !== formData.team1 &&
-            formData.winner !== formData.team2
+            formData.winner !==
+                formData.team1 &&
+            formData.winner !==
+                formData.team2
         ) {
             setError(
                 "Winner must be one of the participating teams."
@@ -209,35 +348,70 @@ function EditMatch() {
         }
 
         try {
+
             setSaving(true);
             setError("");
 
-            await axios.put(
-                `${API_BASE_URL}/matches/${id}/`,
-                {
-                    tournament: Number(formData.tournament),
-                    team1: Number(formData.team1),
-                    team2: Number(formData.team2),
-                    venue: formData.venue.trim(),
-                    match_number: Number(formData.match_number),
-                    match_date: formData.match_date,
-                    match_time: formData.match_time,
-                    status: formData.status,
-                    winner: formData.winner
+            const payload = {
+
+                tournament:
+                    Number(formData.tournament),
+
+                team1:
+                    Number(formData.team1),
+
+                team2:
+                    Number(formData.team2),
+
+                venue:
+                    formData.venue.trim(),
+
+                match_number:
+                    Number(formData.match_number),
+
+                match_date:
+                    formData.match_date,
+
+                match_time:
+                    formData.match_time,
+
+                status:
+                    formData.status,
+
+                winner:
+                    formData.winner
                         ? Number(formData.winner)
                         : null,
-                    team1_score: Number(
+
+                team1_score:
+                    Number(
                         formData.team1_score || 0
                     ),
-                    team2_score: Number(
+
+                team2_score:
+                    Number(
                         formData.team2_score || 0
                     ),
-                    result: formData.result.trim(),
-                },
+
+                result:
+                    formData.result.trim(),
+            };
+
+            console.log(
+                "Updating match:",
+                payload
+            );
+
+            await axios.put(
+                `${API_BASE_URL}/matches/${id}/`,
+                payload,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
+                        Authorization:
+                            `Bearer ${token}`,
+
+                        "Content-Type":
+                            "application/json",
                     },
                 }
             );
@@ -245,46 +419,76 @@ function EditMatch() {
             navigate("/admin/matches");
 
         } catch (err) {
+
             console.error(
                 "Update match error:",
                 err
             );
 
-            if (err.response?.status === 401) {
-                localStorage.removeItem("access_token");
-                localStorage.removeItem("refresh_token");
-                localStorage.removeItem("admin_logged_in");
+            if (
+                err.response?.status === 401
+            ) {
+
+                localStorage.removeItem(
+                    "access_token"
+                );
+
+                localStorage.removeItem(
+                    "refresh_token"
+                );
+
+                localStorage.removeItem(
+                    "admin_logged_in"
+                );
 
                 navigate("/admin-login");
                 return;
             }
 
-            const data = err.response?.data;
+            const data =
+                err.response?.data;
 
-            if (data && typeof data === "object") {
-                const messages = Object.entries(data).map(
-                    ([field, message]) =>
-                        `${field}: ${
-                            Array.isArray(message)
-                                ? message.join(", ")
-                                : message
-                        }`
+            if (
+                data &&
+                typeof data === "object"
+            ) {
+
+                const messages =
+                    Object.entries(data).map(
+                        ([field, message]) =>
+                            `${field}: ${
+                                Array.isArray(message)
+                                    ? message.join(", ")
+                                    : message
+                            }`
+                    );
+
+                setError(
+                    messages.join(" | ")
                 );
 
-                setError(messages.join(" | "));
             } else {
-                setError("Unable to update match.");
+
+                setError(
+                    "Unable to update match."
+                );
             }
 
         } finally {
+
             setSaving(false);
         }
     };
 
     if (loading) {
+
         return (
             <div className="edit-match-loading">
-                <h2>🏏 Loading Match...</h2>
+
+                <h2>
+                    🏏 Loading Match...
+                </h2>
+
             </div>
         );
     }
@@ -295,8 +499,15 @@ function EditMatch() {
             <header className="edit-match-header">
 
                 <div>
-                    <h1>🏏 CricketHub Admin</h1>
-                    <p>Edit Match</p>
+
+                    <h1>
+                        🏏 CricketHub Admin
+                    </h1>
+
+                    <p>
+                        Edit Match
+                    </p>
+
                 </div>
 
                 <Link to="/admin/matches">
@@ -305,11 +516,15 @@ function EditMatch() {
 
             </header>
 
+
             <main className="edit-match-content">
 
                 <section className="edit-match-card">
 
-                    <h2>✏️ Edit Match</h2>
+                    <h2>
+                        ✏️ Edit Match
+                    </h2>
+
 
                     {error && (
                         <div className="edit-match-error">
@@ -317,10 +532,13 @@ function EditMatch() {
                         </div>
                     )}
 
+
                     <form
                         className="edit-match-form"
                         onSubmit={handleSubmit}
                     >
+
+                        {/* TOURNAMENT + MATCH NUMBER */}
 
                         <div className="form-row">
 
@@ -332,28 +550,45 @@ function EditMatch() {
 
                                 <select
                                     name="tournament"
-                                    value={formData.tournament}
-                                    onChange={handleChange}
+                                    value={
+                                        formData.tournament
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
                                 >
+
                                     <option value="">
                                         Select Tournament
                                     </option>
 
                                     {tournaments.map(
                                         (tournament) => (
+
                                             <option
-                                                key={tournament.id}
-                                                value={tournament.id}
+                                                key={
+                                                    tournament.id
+                                                }
+                                                value={
+                                                    tournament.id
+                                                }
                                             >
-                                                {tournament.name} -{" "}
-                                                {tournament.season}
+                                                {
+                                                    tournament.name
+                                                }{" "}
+                                                -{" "}
+                                                {
+                                                    tournament.season
+                                                }
                                             </option>
+
                                         )
                                     )}
 
                                 </select>
 
                             </div>
+
 
                             <div className="form-group">
 
@@ -367,7 +602,9 @@ function EditMatch() {
                                     value={
                                         formData.match_number
                                     }
-                                    onChange={handleChange}
+                                    onChange={
+                                        handleChange
+                                    }
                                     min="1"
                                 />
 
@@ -375,6 +612,8 @@ function EditMatch() {
 
                         </div>
 
+
+                        {/* TEAMS */}
 
                         <div className="form-row">
 
@@ -386,23 +625,38 @@ function EditMatch() {
 
                                 <select
                                     name="team1"
-                                    value={formData.team1}
-                                    onChange={handleChange}
+                                    value={
+                                        formData.team1
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
                                 >
+
                                     <option value="">
                                         Select Team 1
                                     </option>
 
-                                    {teams.map((team) => (
-                                        <option
-                                            key={team.id}
-                                            value={team.id}
-                                        >
-                                            {team.name ||
-                                                team.full_name ||
-                                                team.short_name}
-                                        </option>
-                                    ))}
+                                    {teams.map(
+                                        (team) => (
+
+                                            <option
+                                                key={
+                                                    team.id
+                                                }
+                                                value={
+                                                    team.id
+                                                }
+                                            >
+                                                {
+                                                    team.name ||
+                                                    team.full_name ||
+                                                    team.short_name
+                                                }
+                                            </option>
+
+                                        )
+                                    )}
 
                                 </select>
 
@@ -417,23 +671,38 @@ function EditMatch() {
 
                                 <select
                                     name="team2"
-                                    value={formData.team2}
-                                    onChange={handleChange}
+                                    value={
+                                        formData.team2
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
                                 >
+
                                     <option value="">
                                         Select Team 2
                                     </option>
 
-                                    {teams.map((team) => (
-                                        <option
-                                            key={team.id}
-                                            value={team.id}
-                                        >
-                                            {team.name ||
-                                                team.full_name ||
-                                                team.short_name}
-                                        </option>
-                                    ))}
+                                    {teams.map(
+                                        (team) => (
+
+                                            <option
+                                                key={
+                                                    team.id
+                                                }
+                                                value={
+                                                    team.id
+                                                }
+                                            >
+                                                {
+                                                    team.name ||
+                                                    team.full_name ||
+                                                    team.short_name
+                                                }
+                                            </option>
+
+                                        )
+                                    )}
 
                                 </select>
 
@@ -441,6 +710,8 @@ function EditMatch() {
 
                         </div>
 
+
+                        {/* VENUE */}
 
                         <div className="form-group">
 
@@ -451,13 +722,19 @@ function EditMatch() {
                             <input
                                 type="text"
                                 name="venue"
-                                value={formData.venue}
-                                onChange={handleChange}
+                                value={
+                                    formData.venue
+                                }
+                                onChange={
+                                    handleChange
+                                }
                                 placeholder="Example: M. Chinnaswamy Stadium"
                             />
 
                         </div>
 
+
+                        {/* DATE + TIME */}
 
                         <div className="form-row">
 
@@ -473,7 +750,9 @@ function EditMatch() {
                                     value={
                                         formData.match_date
                                     }
-                                    onChange={handleChange}
+                                    onChange={
+                                        handleChange
+                                    }
                                 />
 
                             </div>
@@ -491,13 +770,17 @@ function EditMatch() {
                                     value={
                                         formData.match_time
                                     }
-                                    onChange={handleChange}
+                                    onChange={
+                                        handleChange
+                                    }
                                 />
 
                             </div>
 
                         </div>
 
+
+                        {/* STATUS + WINNER */}
 
                         <div className="form-row">
 
@@ -509,9 +792,14 @@ function EditMatch() {
 
                                 <select
                                     name="status"
-                                    value={formData.status}
-                                    onChange={handleChange}
+                                    value={
+                                        formData.status
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
                                 >
+
                                     <option value="UPCOMING">
                                         Upcoming
                                     </option>
@@ -527,6 +815,7 @@ function EditMatch() {
                                     <option value="CANCELLED">
                                         Cancelled
                                     </option>
+
                                 </select>
 
                             </div>
@@ -540,9 +829,14 @@ function EditMatch() {
 
                                 <select
                                     name="winner"
-                                    value={formData.winner}
-                                    onChange={handleChange}
+                                    value={
+                                        formData.winner
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
                                 >
+
                                     <option value="">
                                         No Winner
                                     </option>
@@ -553,7 +847,11 @@ function EditMatch() {
                                                 formData.team1
                                             }
                                         >
-                                            Team 1
+                                            {
+                                                getTeamName(
+                                                    formData.team1
+                                                )
+                                            }
                                         </option>
                                     )}
 
@@ -563,7 +861,11 @@ function EditMatch() {
                                                 formData.team2
                                             }
                                         >
-                                            Team 2
+                                            {
+                                                getTeamName(
+                                                    formData.team2
+                                                )
+                                            }
                                         </option>
                                     )}
 
@@ -573,6 +875,8 @@ function EditMatch() {
 
                         </div>
 
+
+                        {/* SCORES */}
 
                         <div className="form-row">
 
@@ -588,7 +892,9 @@ function EditMatch() {
                                     value={
                                         formData.team1_score
                                     }
-                                    onChange={handleChange}
+                                    onChange={
+                                        handleChange
+                                    }
                                     min="0"
                                 />
 
@@ -607,7 +913,9 @@ function EditMatch() {
                                     value={
                                         formData.team2_score
                                     }
-                                    onChange={handleChange}
+                                    onChange={
+                                        handleChange
+                                    }
                                     min="0"
                                 />
 
@@ -615,6 +923,8 @@ function EditMatch() {
 
                         </div>
 
+
+                        {/* RESULT */}
 
                         <div className="form-group">
 
@@ -624,13 +934,19 @@ function EditMatch() {
 
                             <textarea
                                 name="result"
-                                value={formData.result}
-                                onChange={handleChange}
+                                value={
+                                    formData.result
+                                }
+                                onChange={
+                                    handleChange
+                                }
                                 placeholder="Example: RCB won by 5 wickets"
                             />
 
                         </div>
 
+
+                        {/* ACTIONS */}
 
                         <div className="form-actions">
 

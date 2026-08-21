@@ -1,3 +1,6 @@
+
+
+
 from rest_framework import serializers
 
 from .models import Match
@@ -73,19 +76,40 @@ class MatchSerializer(serializers.ModelSerializer):
             getattr(self.instance, "team2", None)
         )
 
-        if team1 and team2 and team1 == team2:
-            raise serializers.ValidationError({
-                "team2": "A team cannot play against itself."
-            })
+        # --------------------------------
+        # TEAM 1 / TEAM 2 VALIDATION
+        # --------------------------------
+
+        if team1 and team2:
+
+            if team1.pk == team2.pk:
+                raise serializers.ValidationError({
+                    "team2": (
+                        "Team 1 and Team 2 "
+                        "cannot be the same."
+                    )
+                })
+
+        # --------------------------------
+        # TOURNAMENT DATE VALIDATION
+        # --------------------------------
 
         match_date = attrs.get(
             "match_date",
-            getattr(self.instance, "match_date", None)
+            getattr(
+                self.instance,
+                "match_date",
+                None
+            )
         )
 
         tournament = attrs.get(
             "tournament",
-            getattr(self.instance, "tournament", None)
+            getattr(
+                self.instance,
+                "tournament",
+                None
+            )
         )
 
         if tournament and match_date:
@@ -112,19 +136,38 @@ class MatchSerializer(serializers.ModelSerializer):
                     )
                 })
 
+        # --------------------------------
+        # WINNER VALIDATION
+        # --------------------------------
+
         winner = attrs.get(
             "winner",
-            getattr(self.instance, "winner", None)
+            getattr(
+                self.instance,
+                "winner",
+                None
+            )
         )
 
-        if winner and team1 and team2:
-            if winner not in (team1, team2):
+        if winner:
+
+            participating_team_ids = {
+                team1.pk,
+                team2.pk,
+            }
+
+            if winner.pk not in participating_team_ids:
+
                 raise serializers.ValidationError({
                     "winner": (
-                        "Winner must be one of the teams "
-                        "playing in this match."
+                        "Winner must be one of the "
+                        "participating teams."
                     )
                 })
+
+        # --------------------------------
+        # COMPLETED VALIDATION
+        # --------------------------------
 
         status = attrs.get(
             "status",
@@ -135,10 +178,14 @@ class MatchSerializer(serializers.ModelSerializer):
             )
         )
 
-        if status == Match.Status.COMPLETED and not winner:
+        if (
+            status == Match.Status.COMPLETED
+            and not winner
+        ):
             raise serializers.ValidationError({
                 "winner": (
-                    "Completed matches must have a winner."
+                    "Completed matches must have "
+                    "a winner."
                 )
             })
 
