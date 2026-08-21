@@ -1,3 +1,6 @@
+
+
+
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -10,6 +13,7 @@ function AddMatch() {
 
     const [tournaments, setTournaments] = useState([]);
     const [teams, setTeams] = useState([]);
+    const [matches, setMatches] = useState([]);
 
     const [formData, setFormData] = useState({
         tournament: "",
@@ -34,6 +38,18 @@ function AddMatch() {
         loadData();
     }, []);
 
+    const getArrayData = (data) => {
+        if (Array.isArray(data)) {
+            return data;
+        }
+
+        if (Array.isArray(data?.results)) {
+            return data.results;
+        }
+
+        return [];
+    };
+
     const loadData = async () => {
         const token = localStorage.getItem("access_token");
 
@@ -50,35 +66,39 @@ function AddMatch() {
                 Authorization: `Bearer ${token}`,
             };
 
-            const [tournamentResponse, teamResponse] =
-                await Promise.all([
-                    axios.get(
-                        `${API_BASE_URL}/tournaments/`,
-                        { headers }
-                    ),
-                    axios.get(
-                        `${API_BASE_URL}/teams/`,
-                        { headers }
-                    ),
-                ]);
+            const [
+                tournamentResponse,
+                teamResponse,
+                matchResponse,
+            ] = await Promise.all([
+                axios.get(
+                    `${API_BASE_URL}/tournaments/`,
+                    { headers }
+                ),
+
+                axios.get(
+                    `${API_BASE_URL}/teams/`,
+                    { headers }
+                ),
+
+                axios.get(
+                    `${API_BASE_URL}/matches/`,
+                    { headers }
+                ),
+            ]);
 
             const tournamentData =
-                tournamentResponse.data;
+                getArrayData(tournamentResponse.data);
 
             const teamData =
-                teamResponse.data;
+                getArrayData(teamResponse.data);
 
-            setTournaments(
-                Array.isArray(tournamentData)
-                    ? tournamentData
-                    : tournamentData.results || []
-            );
+            const matchData =
+                getArrayData(matchResponse.data);
 
-            setTeams(
-                Array.isArray(teamData)
-                    ? teamData
-                    : teamData.results || []
-            );
+            setTournaments(tournamentData);
+            setTeams(teamData);
+            setMatches(matchData);
 
         } catch (err) {
             console.error(
@@ -97,7 +117,7 @@ function AddMatch() {
 
             setError(
                 err.response?.data?.detail ||
-                "Unable to load tournaments and teams."
+                "Unable to load tournaments, teams and matches."
             );
 
         } finally {
@@ -105,15 +125,109 @@ function AddMatch() {
         }
     };
 
+    const getTournamentId = (match) => {
+        if (
+            match?.tournament !== null &&
+            match?.tournament !== undefined
+        ) {
+            if (
+                typeof match.tournament === "object"
+            ) {
+                return match.tournament.id;
+            }
+
+            return match.tournament;
+        }
+
+        if (
+            match?.tournament_id !== null &&
+            match?.tournament_id !== undefined
+        ) {
+            return match.tournament_id;
+        }
+
+        return null;
+    };
+
+    const getNextMatchNumber = (tournamentId) => {
+        if (!tournamentId) {
+            return "";
+        }
+
+        const tournamentMatches = matches.filter(
+            (match) =>
+                Number(getTournamentId(match)) ===
+                Number(tournamentId)
+        );
+
+        if (tournamentMatches.length === 0) {
+            return "1";
+        }
+
+        const numbers = tournamentMatches
+            .map((match) =>
+                Number(match.match_number)
+            )
+            .filter((number) =>
+                Number.isFinite(number)
+            );
+
+        if (numbers.length === 0) {
+            return "1";
+        }
+
+        return String(Math.max(...numbers) + 1);
+    };
+
     const handleChange = (event) => {
         const { name, value } = event.target;
+
+        setError("");
+
+        if (name === "tournament") {
+            const nextMatchNumber =
+                getNextMatchNumber(value);
+
+            setFormData((previous) => ({
+                ...previous,
+                tournament: value,
+                match_number: nextMatchNumber,
+                winner: "",
+            }));
+
+            return;
+        }
+
+        if (name === "team1") {
+            setFormData((previous) => ({
+                ...previous,
+                team1: value,
+                winner:
+                    previous.winner === value
+                        ? ""
+                        : previous.winner,
+            }));
+
+            return;
+        }
+
+        if (name === "team2") {
+            setFormData((previous) => ({
+                ...previous,
+                team2: value,
+                winner:
+                    previous.winner === value
+                        ? ""
+                        : previous.winner,
+            }));
+
+            return;
+        }
 
         setFormData((previous) => ({
             ...previous,
             [name]: value,
         }));
-
-        setError("");
     };
 
     const handleSubmit = async (event) => {
@@ -142,7 +256,10 @@ function AddMatch() {
             return;
         }
 
-        if (formData.team1 === formData.team2) {
+        if (
+            Number(formData.team1) ===
+            Number(formData.team2)
+        ) {
             setError(
                 "Team 1 and Team 2 cannot be the same."
             );
@@ -156,6 +273,19 @@ function AddMatch() {
 
         if (!formData.match_number) {
             setError("Match number is required.");
+            return;
+        }
+
+        const matchNumber =
+            Number(formData.match_number);
+
+        if (
+            !Number.isInteger(matchNumber) ||
+            matchNumber < 1
+        ) {
+            setError(
+                "Match number must be a positive number."
+            );
             return;
         }
 
@@ -179,55 +309,106 @@ function AddMatch() {
             return;
         }
 
+        if (
+            formData.winner &&
+            Number(formData.winner) !==
+                Number(formData.team1) &&
+            Number(formData.winner) !==
+                Number(formData.team2)
+        ) {
+            setError(
+                "Winner must be Team 1 or Team 2."
+            );
+            return;
+        }
+
+        /*
+         * Frontend duplicate check.
+         *
+         * This prevents:
+         *
+         * Tournament 1 + Match 1
+         * Tournament 1 + Match 1
+         *
+         * from being submitted twice.
+         */
+        const duplicateMatch = matches.some(
+            (match) =>
+                Number(getTournamentId(match)) ===
+                    Number(formData.tournament) &&
+                Number(match.match_number) ===
+                    matchNumber
+        );
+
+        if (duplicateMatch) {
+            const nextNumber =
+                getNextMatchNumber(
+                    formData.tournament
+                );
+
+            setError(
+                `Match ${matchNumber} already exists for this tournament. Please use Match ${nextNumber}.`
+            );
+
+            return;
+        }
+
         try {
             setSaving(true);
             setError("");
 
-            await axios.post(
-                `${API_BASE_URL}/matches/`,
-                {
-                    tournament: Number(
-                        formData.tournament
-                    ),
+            const payload = {
+                tournament:
+                    Number(formData.tournament),
 
-                    team1: Number(
-                        formData.team1
-                    ),
+                team1:
+                    Number(formData.team1),
 
-                    team2: Number(
-                        formData.team2
-                    ),
+                team2:
+                    Number(formData.team2),
 
-                    venue: formData.venue.trim(),
+                venue:
+                    formData.venue.trim(),
 
-                    match_number: Number(
-                        formData.match_number
-                    ),
+                match_number:
+                    matchNumber,
 
-                    match_date:
-                        formData.match_date,
+                match_date:
+                    formData.match_date,
 
-                    match_time:
-                        formData.match_time,
+                match_time:
+                    formData.match_time,
 
-                    status:
-                        formData.status,
+                status:
+                    formData.status,
 
-                    winner: formData.winner
+                winner:
+                    formData.winner
                         ? Number(formData.winner)
                         : null,
 
-                    team1_score: Number(
+                team1_score:
+                    Number(
                         formData.team1_score || 0
                     ),
 
-                    team2_score: Number(
+                team2_score:
+                    Number(
                         formData.team2_score || 0
                     ),
 
-                    result:
-                        formData.result.trim(),
-                },
+                result:
+                    formData.result.trim(),
+            };
+
+            console.log(
+                "Adding match:",
+                payload
+            );
+
+            const response = await axios.post(
+                `${API_BASE_URL}/matches/`,
+                payload,
                 {
                     headers: {
                         Authorization:
@@ -237,6 +418,11 @@ function AddMatch() {
                             "application/json",
                     },
                 }
+            );
+
+            console.log(
+                "Match added successfully:",
+                response.data
             );
 
             navigate("/admin/matches");
@@ -263,6 +449,18 @@ function AddMatch() {
                 data &&
                 typeof data === "object"
             ) {
+                if (
+                    Array.isArray(
+                        data.non_field_errors
+                    )
+                ) {
+                    setError(
+                        "This match number already exists for the selected tournament. Please use a different match number."
+                    );
+
+                    return;
+                }
+
                 const messages =
                     Object.entries(data).map(
                         ([field, message]) =>
@@ -276,6 +474,7 @@ function AddMatch() {
                 setError(
                     messages.join(" | ")
                 );
+
             } else {
                 setError(
                     "Unable to add match."
@@ -290,7 +489,9 @@ function AddMatch() {
     if (loading) {
         return (
             <div className="add-match-loading">
-                <h2>🏏 Loading Match Form...</h2>
+                <h2>
+                    🏏 Loading Match Form...
+                </h2>
             </div>
         );
     }
@@ -301,8 +502,13 @@ function AddMatch() {
             <header className="add-match-header">
 
                 <div>
-                    <h1>🏏 CricketHub Admin</h1>
-                    <p>Add Match</p>
+                    <h1>
+                        🏏 CricketHub Admin
+                    </h1>
+
+                    <p>
+                        Add Match
+                    </p>
                 </div>
 
                 <Link to="/admin/matches">
@@ -315,7 +521,9 @@ function AddMatch() {
 
                 <section className="add-match-card">
 
-                    <h2>🏏 Add New Match</h2>
+                    <h2>
+                        🏏 Add New Match
+                    </h2>
 
                     {error && (
                         <div className="add-match-error">
@@ -371,7 +579,6 @@ function AddMatch() {
 
                         </div>
 
-
                         <div className="form-row">
 
                             <div className="form-group">
@@ -412,7 +619,6 @@ function AddMatch() {
                                 </select>
 
                             </div>
-
 
                             <div className="form-group">
 
@@ -455,7 +661,6 @@ function AddMatch() {
 
                         </div>
 
-
                         <div className="form-row">
 
                             <div className="form-group">
@@ -479,7 +684,6 @@ function AddMatch() {
 
                             </div>
 
-
                             <div className="form-group">
 
                                 <label>
@@ -502,7 +706,6 @@ function AddMatch() {
 
                         </div>
 
-
                         <div className="form-row">
 
                             <div className="form-group">
@@ -524,7 +727,6 @@ function AddMatch() {
 
                             </div>
 
-
                             <div className="form-group">
 
                                 <label>
@@ -545,7 +747,6 @@ function AddMatch() {
                             </div>
 
                         </div>
-
 
                         <div className="form-group">
 
@@ -581,7 +782,6 @@ function AddMatch() {
 
                         </div>
 
-
                         <div className="form-group">
 
                             <label>
@@ -601,27 +801,34 @@ function AddMatch() {
                                     No Winner
                                 </option>
 
-                                {teams.map(
-                                    (team) => (
-                                        <option
-                                            key={
-                                                team.id
-                                            }
-                                            value={
-                                                team.id
-                                            }
-                                        >
-                                            {
-                                                team.name
-                                            }
-                                        </option>
+                                {teams
+                                    .filter(
+                                        (team) =>
+                                            Number(team.id) ===
+                                                Number(formData.team1) ||
+                                            Number(team.id) ===
+                                                Number(formData.team2)
                                     )
-                                )}
+                                    .map(
+                                        (team) => (
+                                            <option
+                                                key={
+                                                    team.id
+                                                }
+                                                value={
+                                                    team.id
+                                                }
+                                            >
+                                                {
+                                                    team.name
+                                                }
+                                            </option>
+                                        )
+                                    )}
 
                             </select>
 
                         </div>
-
 
                         <div className="form-row">
 
@@ -645,7 +852,6 @@ function AddMatch() {
 
                             </div>
 
-
                             <div className="form-group">
 
                                 <label>
@@ -668,7 +874,6 @@ function AddMatch() {
 
                         </div>
 
-
                         <div className="form-group">
 
                             <label>
@@ -688,7 +893,6 @@ function AddMatch() {
                             />
 
                         </div>
-
 
                         <div className="form-actions">
 
