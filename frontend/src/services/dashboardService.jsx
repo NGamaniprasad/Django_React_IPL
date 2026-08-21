@@ -4,6 +4,8 @@ const API_URL = "http://127.0.0.1:8000/api";
 
 const getAuthConfig = () => {
     const token = localStorage.getItem("access");
+    
+    
 
     return {
         headers: {
