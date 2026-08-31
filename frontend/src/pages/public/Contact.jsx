@@ -1,15 +1,48 @@
+
+import { useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import "./Contact.css";
 
 function Contact() {
+    const [status, setStatus] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(
+                "https://formspree.io/f/xnpqjpyz",
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }
+            );
+
+            if (response.ok) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            setStatus("error");
+        }
+    };
+
     return (
         <>
             <Navbar />
 
             <main className="contact-page">
 
-                {/* ================= HEADER ================= */}
+                {/* HEADER */}
 
                 <section className="contact-hero">
 
@@ -29,110 +62,136 @@ function Contact() {
                 </section>
 
 
-                {/* ================= CONTACT CARD ================= */}
+                {/* CONTACT FORM */}
 
                 <section className="contact-section">
 
-                    <div className="contact-card">
+                    <div className="contact-form-card">
 
-                        <div className="contact-card-top">
+                        <div className="contact-form-header">
 
-                            <div className="contact-avatar">
-                                GP
-                            </div>
-
-                            <div>
-                                <span className="contact-label">
-                                    PROJECT OWNER
-                                </span>
-
-                                <h2>
-                                    Gamani Prasad
-                                </h2>
-
-                                <p>
-                                    CricketHub IPL Manager
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        <div className="contact-divider"></div>
-
-
-                        {/* EMAIL */}
-
-                        <a
-                            href="mailto:gamanin@gmail.com"
-                            className="contact-item"
-                        >
-
-                            <div className="contact-icon">
-                                📧
-                            </div>
-
-                            <div className="contact-details">
-
-                                <span>
-                                    Email
-                                </span>
-
-                                <strong>
-                                    gamanin@gmail.com
-                                </strong>
-
-                            </div>
-
-                            <span className="contact-arrow">
-                                →
+                            <span className="contact-label">
+                                SEND A MESSAGE
                             </span>
 
-                        </a>
-
-
-                        {/* PHONE */}
-
-                        <a
-                            href="tel:9876543210"
-                            className="contact-item"
-                        >
-
-                            <div className="contact-icon">
-                                📞
-                            </div>
-
-                            <div className="contact-details">
-
-                                <span>
-                                    Phone
-                                </span>
-
-                                <strong>
-                                    +91 9876543210
-                                </strong>
-
-                            </div>
-
-                            <span className="contact-arrow">
-                                →
-                            </span>
-
-                        </a>
-
-
-                        <div className="contact-note">
-
-                            <span>
-                                💬
-                            </span>
+                            <h2>
+                                Get in touch
+                            </h2>
 
                             <p>
-                                Feel free to reach out for questions,
-                                suggestions or project-related discussions.
+                                Send your question or feedback
+                                directly to the CricketHub team.
                             </p>
 
                         </div>
+
+
+                        <form onSubmit={handleSubmit}>
+
+                            {/* NAME */}
+
+                            <div className="form-group">
+
+                                <label htmlFor="name">
+                                    Name
+                                </label>
+
+                                <input
+                                    id="name"
+                                    type="text"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* EMAIL */}
+
+                            <div className="form-group">
+
+                                <label htmlFor="email">
+                                    Email
+                                </label>
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* SUBJECT */}
+
+                            <div className="form-group">
+
+                                <label htmlFor="subject">
+                                    Subject
+                                </label>
+
+                                <input
+                                    id="subject"
+                                    type="text"
+                                    name="subject"
+                                    placeholder="Enter subject"
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* MESSAGE */}
+
+                            <div className="form-group">
+
+                                <label htmlFor="message">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="6"
+                                    placeholder="Write your message..."
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* SUBMIT */}
+
+                            <button
+                                type="submit"
+                                className="contact-submit-btn"
+                            >
+                                Send Message
+                            </button>
+
+
+                            {/* SUCCESS */}
+
+                            {status === "success" && (
+                                <div className="contact-success">
+                                    ✓ Message sent successfully!
+                                </div>
+                            )}
+
+
+                            {/* ERROR */}
+
+                            {status === "error" && (
+                                <div className="contact-error">
+                                    ✕ Something went wrong. Please try again.
+                                </div>
+                            )}
+
+                        </form>
 
                     </div>
 
@@ -146,3 +205,4 @@ function Contact() {
 }
 
 export default Contact;
+
