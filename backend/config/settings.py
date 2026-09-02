@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     "downloads",
     "media_manager",
     "points_table",
+
 ]
 
 

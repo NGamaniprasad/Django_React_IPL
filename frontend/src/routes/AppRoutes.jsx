@@ -303,6 +303,7 @@ function AppRoutes() {
                     element={<Statistics />}
                 />
 
+
                 <Route
                     path="/user/points-table"
                     element={<PointsTable />}

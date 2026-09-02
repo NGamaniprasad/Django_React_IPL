@@ -19,6 +19,7 @@ Tagline:
 * Django ORM
 * Simple JWT
 * MySQL 8
+* Gemini-api-key
 
 ## Frontend
 
