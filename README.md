@@ -1,11 +1,8 @@
 
 # 🏏 CricketHub IPL Manager
 
-Tagline:
 
 **Manage • Track • Analyze**
-
-
 
 ---
 
@@ -25,7 +22,6 @@ Tagline:
 
 * React.js
 * JavaScript
-* HTML5
 * CSS3
 * Axios
 * React Router
@@ -82,8 +78,8 @@ CricketHub/
 │   ├── tournaments/
 │   ├── matches/
 │   ├── stats/
-│   ├── media/
-│   └── downloads/
+│   ├── media/ - Working on it 
+│   └── downloads/ - Working on it 
 │
 ├── frontend/
 │   ├── package.json
@@ -231,23 +227,9 @@ Not affiliated with or endorsed by IPL or BCCI.
 
 ---
 
-# 5. IMPORTANT PUBLIC-HOME RULE
 
-Before login, do NOT expose:
 
-```text
-❌ Teams application page
-❌ Players page
-❌ All Players
-❌ Fixtures
-❌ Matches
-❌ Statistics
-❌ Points Table
-❌ Tournament History
-❌ Downloads
-```
-
-The public website is primarily:
+# 5.The public website is primarily:
 
 ```text
 Home
@@ -263,11 +245,10 @@ Login
 
 # 6. REGISTRATION
 
-Both registration buttons must be available on the **same public Home page**.
 
 ```text
 [ User Register ]
-[ Admin Register ]
+
 ```
 
 ## User Registration
@@ -292,28 +273,7 @@ Login
 User Dashboard
 ```
 
-## Admin Registration
 
-Fields:
-
-```text
-Full Name
-Username
-Email
-Password
-Confirm Password
-Admin Registration Code to my mail gamanin@gmail.com
-```
-
-The backend must verify the admin registration code.
-
-Never trust:
-
-```text
-role=ADMIN
-```
-
-from the frontend.
 
 ---
 
@@ -336,11 +296,7 @@ Profile
 Logout
 ```
 
-Important:
 
-**Do NOT create a global "All Players" navigation item for users.**
-
-Users access players through teams.
 
 ---
 
@@ -385,15 +341,10 @@ Users can:
 * View city
 * View team statistics
 
-Users cannot:
-
-* Add teams
-* Edit teams
-* Delete teams
 
 ---
 
-# 10. IMPORTANT PLAYER DESIGN
+# 10. User PLAYER DESIGN
 
 Users must **NOT see all players at once**.
 
@@ -477,7 +428,7 @@ Users cannot:
 Player profile should include:
 
 ```text
-Player Image
+Player Image - Not Available Now
 Name
 Team
 Role
@@ -504,7 +455,7 @@ WICKET_KEEPER
 
 ---
 
-# 12. USER — PLAYER MEDIA
+# 12. USER — PLAYER MEDIA -Working On it 
 
 Users can:
 
@@ -667,7 +618,7 @@ Each tournament can show:
 
 ---
 
-# 18. USER — DOWNLOAD CENTER
+# 18. USER — DOWNLOAD CENTER -Working on it 
 
 Users can download:
 
@@ -703,12 +654,7 @@ Users can:
 * Change password
 * Logout
 
-Users cannot:
 
-* Change own role
-* Assign themselves ADMIN
-* Modify another user
-* Access admin APIs
 
 ---
 
@@ -783,7 +729,7 @@ Total Players
 Total Matches
 Total Users
 Active Tournament
-Media Count
+Media Count - Working on it 
 Upcoming Matches
 ```
 
@@ -796,7 +742,7 @@ Quick actions:
 + Add Tournament
 Manage Points Table
 Manage Users
-Manage Media
+Manage Media -Working on it
 ```
 
 Also show:
@@ -839,8 +785,8 @@ Admin can:
 * Delete player
 * Assign player to team
 * Update statistics
-* Upload player image
-* Manage player media
+* Upload player image - Not Available 
+* Manage player media - Working on it 
 
 Admin player management can use:
 
@@ -848,7 +794,7 @@ Admin player management can use:
 Search
 Filter by Team
 Filter by Role
-Pagination
+
 ```
 
 ---
@@ -930,7 +876,7 @@ Never display passwords.
 
 Admin can:
 
-* Upload media
+* Upload media - Working on it
 * Edit media
 * Delete media
 * Associate media with player/team/match
@@ -939,7 +885,7 @@ Admin can:
 
 ---
 
-# 30. ADMIN — REPORTS / DOWNLOADS
+# 30. ADMIN — REPORTS / DOWNLOADS - Working on it
 
 Admin can generate/download:
 
@@ -1183,7 +1129,7 @@ MatchDetails
 Statistics
 PointsTable
 TournamentHistory
-Downloads
+Downloads - Working on it 
 Profile
 ```
 
@@ -1199,7 +1145,7 @@ ManageMatches
 ManageTournaments
 ManagePointsTable
 ManageUsers
-ManageMedia
+ManageMedia -Working on it
 Reports
 Settings
 ```
@@ -1466,20 +1412,12 @@ Implement:
 * API authorization
 * Permission checks
 
-Never commit:
-
-```text
-SECRET_KEY
-Database password
-JWT secrets
-.env
-```
 
 ---
 
 # 45. TESTING
 
-Test:
+Test: Check all 
 
 ### Authentication
 
@@ -1625,341 +1563,10 @@ Never commit `.env`.
 
 # 49. DEVELOPMENT ORDER
 
-Follow this exact order:
+- Do step by step
 
-```text
-PHASE 1
-Project Architecture + Folder Structure
 
-PHASE 2
-Django + MySQL Setup
-
-PHASE 3
-Database Models
-
-PHASE 4
-Django Admin
-
-PHASE 5
-Team APIs
-
-PHASE 6
-Player APIs
-
-PHASE 7
-Tournament APIs
-
-PHASE 8
-Match + Fixture APIs
-
-PHASE 9
-Statistics + Points Table
-
-PHASE 10
-Media + Download APIs
-
-PHASE 11
-JWT Authentication
-
-PHASE 12
-Role-Based Authorization
-
-PHASE 13
-React Setup
-
-PHASE 14
-Public Home + About + Contact + Terms
-
-PHASE 15
-User Registration/Login
-
-PHASE 16
-Admin Registration/Login
-
-PHASE 17
-User Dashboard
-
-PHASE 18
-Team UI + Team-wise Players
-
-PHASE 19
-Player Details + Media
-
-PHASE 20
-Fixtures + Matches
-
-PHASE 21
-Statistics + Points Table
-
-PHASE 22
-Tournament History
-
-PHASE 23
-Downloads
-
-PHASE 24
-Admin Dashboard
-
-PHASE 25
-Admin CRUD
-
-PHASE 26
-User Management + Media Management
-
-PHASE 27
-Search + Filters + Pagination
-
-PHASE 28
-Validation + Error Handling
-
-PHASE 29
-Testing
-
-PHASE 30
-GitHub + README
-
-PHASE 31
-Production Configuration
-
-PHASE 32
-Deployment
-
-PHASE 33
-Interview Preparation
-```
-
----
-
-# 50. FAST DEVELOPMENT MODE — VERY IMPORTANT
-
-Do NOT generate the entire application in one response.
-
-Work **one phase at a time**.
-
-For each phase:
-
-### STEP 1 — Explain
-
-Give only a short explanation of what we are building.
-
-### STEP 2 — Files
-
-Show exactly which files are being created/modified.
-
-### STEP 3 — Complete Code
-
-Give complete working code.
-
-Avoid incomplete snippets unless only a tiny change is required.
-
-### STEP 4 — Commands
-
-Give exact commands to run.
-
-### STEP 5 — Test
-
-Tell me exactly how to test it.
-
-### STEP 6 — Expected Result
-
-Tell me what I should see.
-
-### STEP 7 — Git
-
-Give the Git commit command.
-
-### STEP 8 — STOP
-
-Wait for:
-
-```text
-NEXT
-```
-
-Do not automatically continue to the next phase.
-
----
-
-# 51. FAST RESPONSE RULE
-
-Prioritize implementation.
-
-Do NOT:
-
-* Repeat this prompt
-* Repeat completed code
-* Restart completed phases
-* Generate unnecessary files
-* Add unnecessary libraries
-* Over-engineer
-* Give excessive theory
-* Change the architecture without reason
-* Generate multiple phases together
-
-Keep explanations concise.
-
-Provide production-quality code.
-
----
-
-# 52. DEBUGGING MODE
-
-If I send an error, screenshot, traceback, code or terminal output:
-
-```text
-ERROR
- ↓
-ROOT CAUSE
- ↓
-AFFECTED FILE
- ↓
-FIX
- ↓
-EXACT COMMAND
- ↓
-EXPECTED RESULT
-```
-
-Then stop.
-
-Do not move forward until the issue is fixed.
-
----
-
-# 53. INTERVIEW MENTOR MODE
-
-After every major completed module, give:
-
-```text
-5 Beginner Interview Questions
-5 Intermediate Interview Questions
-3 Project-Based Questions
-Short Answers
-```
-
-Focus on:
-
-* Python
-* Django
-* DRF
-* REST APIs
-* JWT
-* Authentication
-* Authorization
-* RBAC
-* React
-* JavaScript
-* Axios
-* MySQL
-* SQL
-* ORM
-* Relationships
-* Indexing
-* Query optimization
-* Pagination
-* Git/GitHub
-* Testing
-* Deployment
-* Clean Code
-* Production practices
-
----
-
-# 54. FINAL PERMISSION MODEL
-
-## 👤 USER
-
-User can:
-
-```text
-Register
-Login
-Logout
-View profile
-Edit own profile
-Change password
-
-View teams
-View team details
-View players ONLY through selected team
-View player details
-View player media
-
-View fixtures
-View matches
-View statistics
-View points table
-View tournament history
-
-Search/filter permitted information
-Download permitted data
-```
-
-User cannot:
-
-```text
-Create
-Update
-Delete
-Upload media
-Manage users
-Manage tournaments
-Manage teams
-Manage players
-Manage matches
-Access admin APIs
-```
-
----
-
-# 55. 🛠️ ADMIN
-
-Admin can:
-
-```text
-Register through secure admin verification
-Login
-Logout
-Manage own profile
-
-Create teams
-Update teams
-Delete teams
-
-View all players
-Create players
-Update players
-Delete players
-Assign players to teams
-
-Create fixtures
-Update fixtures
-Delete fixtures
-
-Create matches
-Update matches
-Delete matches
-Update match results
-
-Create tournaments
-Update tournaments
-Delete tournaments
-
-Manage statistics
-Manage points table
-
-Manage users
-Manage roles
-Activate/deactivate users
-
-Upload/manage media
-
-Generate/download reports
-```
-
----
-
-# 56. FINAL APPLICATION FLOW
+# 50. FINAL APPLICATION FLOW
 
 ```text
                          CRICKETHUB
@@ -1997,126 +1604,7 @@ Media + Downloads                                  │
 
 ---
 
-# 57. FINAL QUALITY TARGET
 
-The finished project must be:
-
-```text
-Professional
-Production-oriented
-Beginner-friendly
-Interview-friendly
-Responsive
-Secure
-Maintainable
-Original
-GitHub-ready
-Resume-ready
-```
-
-It should demonstrate real-world knowledge of:
-
-```text
-Python
-Django
-Django REST Framework
-REST API
-JWT
-RBAC
-React
-JavaScript
-Axios
-MySQL
-SQL
-ORM
-CRUD
-Search
-Filtering
-Pagination
-Statistics
-File Downloads
-Media Management
-Authentication
-Authorization
-Testing
-Git/GitHub
-Deployment
-```
-
-Do not turn it into an unnecessarily complicated enterprise system.
-
-The goal is a **strong, realistic fresher/junior Python Full-Stack portfolio project** that I can confidently explain in an interview.
-
----
-
-# 🚀 START NOW
-
-Start with **PHASE 1 ONLY**.
-
-For Phase 1 provide:
-
-1. Final architecture
-2. Complete folder structure
-3. Feature/module breakdown
-4. User vs Admin permission overview
-5. Database relationship overview
-6. React page structure
-7. Backend API structure
-8. Development roadmap
-9. Exact first setup commands
-
-Do NOT implement Phase 2.
-
-After Phase 1, stop and wait for:
-
-**NEXT**
-
-CricketHub/
-│
-├── backend/
-│   ├── manage.py
-│   │
-│   ├── config/
-│   │   ├── __init__.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   ├── asgi.py
-│   │   └── wsgi.py
-│   │
-│   ├── accounts/
-│   ├── teams/
-│   ├── players/
-│   ├── tournaments/
-│   ├── matches/
-│   ├── stats/
-│   ├── downloads/
-│   ├── media_manager/
-│   │
-│   ├── media/
-│   ├── static/
-│   ├── requirements.txt
-│   └── .env
-│
-├── frontend/
-│   ├── package.json
-│   ├── public/
-│   │
-│   └── src/
-│       ├── assets/
-│       ├── components/
-│       ├── context/
-│       ├── hooks/
-│       ├── pages/
-│       ├── routes/
-│       ├── services/
-│       ├── utils/
-│       ├── App.jsx
-│       ├── main.jsx
-│       └── index.css
-│
-├── .env.example
-├── .gitignore
-└── README.md
 
 | Module                | Responsibility                            |
 | --------------------- | ----------------------------------------- |
@@ -2374,104 +1862,6 @@ PATCH /api/users/{id}/role/
                                   ▼
                            CRUD Operation
 
-PHASE 1
-Architecture + Folder Structure
-                ↓
-PHASE 2
-Django + MySQL Setup
-                ↓
-PHASE 3
-Database Models
-                ↓
-PHASE 4
-Django Admin
-                ↓
-PHASE 5
-Team APIs
-                ↓
-PHASE 6
-Player APIs
-                ↓
-PHASE 7
-Tournament APIs
-                ↓
-PHASE 8
-Match + Fixture APIs
-                ↓
-PHASE 9
-Statistics + Points Table
-                ↓
-PHASE 10
-Media + Download APIs
-                ↓
-PHASE 11
-JWT Authentication
-                ↓
-PHASE 12
-Role-Based Authorization
-                ↓
-PHASE 13
-React Setup
-                ↓
-PHASE 14
-Public Website
-                ↓
-PHASE 15
-User Registration/Login
-                ↓
-PHASE 16
-Admin Registration/Login
-                ↓
-PHASE 17
-User Dashboard
-                ↓
-PHASE 18
-Teams + Team-wise Players
-                ↓
-PHASE 19
-Player Details + Media
-                ↓
-PHASE 20
-Fixtures + Matches
-                ↓
-PHASE 21
-Statistics + Points Table
-                ↓
-PHASE 22
-Tournament History
-                ↓
-PHASE 23
-Downloads
-                ↓
-PHASE 24
-Admin Dashboard
-                ↓
-PHASE 25
-Admin CRUD
-                ↓
-PHASE 26
-Users + Media Management
-                ↓
-PHASE 27
-Search + Filters + Pagination
-                ↓
-PHASE 28
-Validation + Error Handling
-                ↓
-PHASE 29
-Testing
-                ↓
-PHASE 30
-GitHub + README
-                ↓
-PHASE 31
-Production Configuration
-                ↓
-PHASE 32
-Deployment
-                ↓
-PHASE 33
-Interview Preparation
 
                  CRICKETHUB
                      │
@@ -2508,508 +1898,7 @@ Interview Preparation
 | DELETE | `/api/tournaments/{id}/` | Admin      |
 
 
-✨ Features
-🌐 Public Website
 
-The public website contains:
-
-Home
-About IPL
-About CricketHub
-Contact
-Terms of Use
-Privacy Policy
-User Registration
-Admin Registration
-User Login
-Admin Login
-
-👤 User Features
-
-Registered users can:
-
-Register an account
-Login securely
-Logout
-View dashboard
-Edit their profile
-View IPL teams
-View team details
-View team-wise players
-View player information
-View fixtures
-View matches
-View match results
-View statistics
-View points table
-View tournament information
-Download available reports/data
-
-Users have read-only access to application cricket data.
-
-They cannot create, update or delete management data.
-
-The player navigation intentionally follows:
-
-User
- ↓
-Teams
- ↓
-Select Team
- ↓
-Team Details
- ↓
-Team Players
- ↓
-Select Player
- ↓
-Player Details
-
-There is no global "All Players" page for normal users.
-
-🛠️ Admin Features
-
-Administrators have management access to the application.
-
-Team Management
-
-Admin can:
-
-Create teams
-View teams
-Update teams
-Delete teams
-Player Management
-
-Admin can:
-
-Add players
-View players
-Edit players
-Delete players
-Assign players to teams
-Manage player statistics
-Tournament Management
-
-Admin can:
-
-Create tournaments
-View tournaments
-Edit tournaments
-Delete tournaments
-Match Management
-
-Admin can:
-
-Create matches
-View matches
-Edit matches
-Delete matches
-Update match results
-Statistics Management
-
-Admin can:
-
-View player statistics
-Add statistics
-Edit statistics
-Delete statistics
-Manage performance information
-Points Table Management
-
-Admin can:
-
-Add points table entries
-Edit points table entries
-Delete points table entries
-Manage wins
-Manage losses
-Manage no-results
-Manage points
-Manage net run rate
-Manage position
-User Management
-
-Admin can:
-
-View registered users
-View user information
-Delete users
-Manage user status
-View user roles
-
-Administrators are protected from deleting their own account and protected superuser accounts.
-
-The overall project specification includes management of teams, players, fixtures, matches, tournaments, statistics, points tables and users.
-
-🧰 Technology Stack
-Backend
-Python 3.12
-Django
-Django REST Framework
-Django ORM
-Simple JWT
-MySQL 8
-Frontend
-React.js
-JavaScript
-HTML5
-CSS3
-Axios
-React Router
-Development Tools
-PyCharm
-MySQL Workbench
-Postman
-Git
-GitHub
-VS Code
-
-The selected technology stack follows the project's original architecture specification.
-
-🏗️ Application Architecture
-                    CricketHub
-                       │
-              ┌────────┴────────┐
-              │                 │
-          FRONTEND           BACKEND
-          React.js            Django
-              │                 │
-           Pages              Apps
-           Routes             APIs
-        Components             JWT
-          Services             RBAC
-              │                 │
-              └────── Axios ────┘
-                       │
-                    MySQL 8
-📁 Project Structure
-CricketHub/
-│
-├── backend/
-│   │
-│   ├── manage.py
-│   │
-│   ├── config/
-│   │
-│   ├── accounts/
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── views.py
-│   │   ├── permissions.py
-│   │   └── urls.py
-│   │
-│   ├── teams/
-│   │
-│   ├── players/
-│   │
-│   ├── tournaments/
-│   │
-│   ├── matches/
-│   │
-│   ├── statistics/
-│   │
-│   ├── points_table/
-│   │
-│   ├── media/
-│   │
-│   └── downloads/
-│
-├── frontend/
-│   │
-│   ├── package.json
-│   │
-│   └── src/
-│       │
-│       ├── components/
-│       │   ├── common/
-│       │   └── layout/
-│       │
-│       ├── pages/
-│       │   ├── public/
-│       │   ├── auth/
-│       │   ├── user/
-│       │   └── admin/
-│       │
-│       ├── services/
-│       │
-│       ├── context/
-│       │
-│       ├── hooks/
-│       │
-│       ├── routes/
-│       │
-│       ├── assets/
-│       │
-│       └── utils/
-│
-├── README.md
-├── .env.example
-└── .gitignore
-
-This follows the recommended separation between the Django backend and React frontend.
-
-🔐 Authentication
-
-CricketHub uses:
-
-Django Authentication
-        +
-Django REST Framework
-        +
-JWT
-
-Authentication flow:
-
-User Registration
-       ↓
-User Login
-       ↓
-Username + Password
-       ↓
-Django Authentication
-       ↓
-JWT Access Token
-       ↓
-React localStorage
-       ↓
-Authenticated API Requests
-
-The frontend sends the token using:
-
-Authorization: Bearer <access_token>
-🛡️ Authorization
-
-CricketHub uses role-based authorization.
-
-There are two main roles:
-
-USER
-ADMIN
-User
-USER
-  ↓
-Authenticated
-  ↓
-Read-only application data
-Admin
-ADMIN
-  ↓
-Authenticated
-  ↓
-Create
-Read
-Update
-Delete
-
-The backend is responsible for enforcing permissions.
-
-Frontend buttons being hidden is not considered security.
-
-For example:
-
-USER
-POST /api/players/
-        ↓
-403 Forbidden
-
-While:
-
-ADMIN
-POST /api/players/
-        ↓
-201 Created
-
-This backend-enforced RBAC approach is part of the project specification.
-
-🧩 Main Modules
-Accounts
-
-Responsible for:
-
-Registration
-Login
-Profile
-JWT authentication
-User management
-Admin authorization
-Teams
-
-Responsible for:
-
-Team information
-Team logo
-Captain
-Coach
-Home ground
-Team details
-Players
-
-Responsible for:
-
-Player information
-Player role
-Team assignment
-Player performance
-Player statistics
-Tournaments
-
-Responsible for:
-
-Tournament information
-Season
-Tournament management
-Matches
-
-Responsible for:
-
-Fixtures
-Match scheduling
-Teams
-Venue
-Date
-Time
-Status
-Winner
-Match results
-Statistics
-
-Responsible for:
-
-Runs
-Wickets
-Strike rate
-Batting average
-Economy
-Top run scorer
-Top wicket taker
-Best average
-Best strike rate
-Best economy
-Points Table
-
-Responsible for:
-
-Matches played
-Wins
-Losses
-No results
-Points
-Net run rate
-Position
-
-The normal points calculation is:
-
-Points = (Wins × 2) + No Results
-🗄️ Database Design
-
-Main entities:
-
-User
- │
- └── UserProfile
-
-Team
- │
- └── Player
-
-Tournament
- │
- ├── Match
- │
- └── PointsTable
-
-Player
- │
- └── Statistics
-
-Important relationships:
-
-Team 1 ──────── * Player
-
-Tournament 1 ──────── * Match
-
-Tournament 1 ──────── * PointsTable
-
-Team 1 ──────── * PointsTable
-
-User 1 ──────── 1 UserProfile
-🔌 API Structure
-
-Example API structure:
-
-/api/
-│
-├── accounts/
-│
-├── teams/
-│
-├── players/
-│
-├── tournaments/
-│
-├── matches/
-│
-├── statistics/
-│
-└── points-table/
-
-Example team APIs:
-
-Method	Endpoint	Purpose	Permission
-GET	/api/teams/	List teams	User/Admin
-GET	/api/teams/{id}/	Team details	User/Admin
-POST	/api/teams/	Create team	Admin
-PUT	/api/teams/{id}/	Update team	Admin
-PATCH	/api/teams/{id}/	Partial update	Admin
-DELETE	/api/teams/{id}/	Delete team	Admin
-🧭 Frontend Routes
-Public
-/
- /about-ipl
- /about
- /contact
- /terms
- /privacy
- /register
- /admin-register
- /login
- /admin-login
-User
-/user/dashboard
-/user/teams
-/user/teams/:id
-/user/teams/:id/players
-/user/fixtures
-/user/matches
-/user/matches/:id
-/user/statistics
-/user/points-table
-/user/history
-/user/downloads
-/user/profile
-Admin
-/admin/dashboard
-/admin/teams
-/admin/teams/:id
-/admin/players
-/admin/players/add
-/admin/players/:id/edit
-/admin/tournaments
-/admin/tournaments/add
-/admin/tournaments/:id/edit
-/admin/matches
-/admin/matches/add
-/admin/matches/:id/edit
-/admin/statistics
-/admin/statistics/add
-/admin/statistics/:id/edit
-/admin/points-table
-/admin/points-table/add
-/admin/points-table/:id/edit
-/admin/users
-
-These routes align with the planned user/admin application structure.
 
 📦 Installation
 Requirements
@@ -3258,92 +2147,7 @@ git init
 git add .
 git commit -m "Initial CricketHub project setup"
 
-Example meaningful commits:
 
-Configure Django and MySQL
-Create database models
-Configure JWT authentication
-Create team APIs
-Create player APIs
-Create tournament APIs
-Create match APIs
-Create statistics APIs
-Create points table APIs
-Create public homepage
-Create authentication pages
-Create user dashboard
-Create admin dashboard
-Create team management
-Create player management
-Create match management
-Create statistics UI
-Create points table
-Create user management
-Add validation
-Add testing
-Create README
-📸 Screenshots
-
-Add screenshots of the application here after completing the UI.
-
-Example:
-
-docs/
-│
-├── home.png
-├── user-login.png
-├── user-dashboard.png
-├── teams.png
-├── team-details.png
-├── fixtures.png
-├── statistics.png
-├── points-table.png
-├── admin-dashboard.png
-├── admin-teams.png
-├── admin-players.png
-├── admin-matches.png
-├── admin-statistics.png
-└── admin-users.png
-
-Then add them to this README:
-
-## 🖥️ Screenshots
-
-### Home
-
-![Home](docs/home.png)
-
-### User Dashboard
-
-![User Dashboard](docs/user-dashboard.png)
-
-### Admin Dashboard
-
-![Admin Dashboard](docs/admin-dashboard.png)
-📊 Application Flow
-                         CRICKETHUB
-                             │
-                       PUBLIC HOME
-                             │
-            ┌────────────────┼────────────────┐
-            │                │                │
-       USER REGISTER    ADMIN REGISTER      LOGIN
-            │                │                │
-            ▼                ▼                ▼
-        USER ROLE        ADMIN ROLE      AUTHENTICATION
-            │                │
-            ▼                ▼
-      USER DASHBOARD   ADMIN DASHBOARD
-            │                │
-      ┌─────┼──────┐    ┌────┼─────────────┐
-      │     │      │    │    │      │      │
-    Teams Fixtures Stats Teams Players Matches
-      │     │      │    │    │      │      │
-      │     │      │    │    │      │      │
-    Players      Points  Tournaments Statistics
-                 Table
-
-The overall user/admin flow follows the project's defined application flow.
 
 🚀 Future Improvements
 
@@ -3370,88 +2174,15 @@ Automated tests
 Production monitoring
 💼 Resume Description
 
-You can describe this project on your resume as:
 
-CricketHub IPL Manager — Full Stack Web Application
-Developed a role-based cricket information and management platform using React.js, Django REST Framework, JWT and MySQL. Implemented secure authentication, role-based authorization, CRUD operations for teams, players, tournaments, matches, statistics and points tables, along with responsive dashboards for users and administrators.
+# 👨‍💻 Author
+ # N Gam'ni Prasad
 
-🎯 Technical Skills Demonstrated
-
-This project demonstrates practical knowledge of:
-
-Python
-Django
-Django REST Framework
-REST APIs
-JWT Authentication
-Role-Based Authorization
-Django ORM
-MySQL
-SQL
-React.js
-JavaScript
-HTML5
-CSS3
-Axios
-React Router
-CRUD Operations
-Form Validation
-API Integration
-Git
-GitHub
-🧠 Interview Topics Demonstrated
-
-This project can be used to explain:
-
-Backend
-Django architecture
-Django ORM
-Models
-Serializers
-APIViews
-ViewSets
-REST APIs
-Authentication
-JWT
-Permissions
-Database relationships
-Frontend
-React components
-React Hooks
-useState
-useEffect
-React Router
-Axios
-Protected routes
-Form handling
-API integration
-Conditional rendering
-Database
-MySQL
-Primary keys
-Foreign keys
-One-to-one relationships
-One-to-many relationships
-Unique constraints
-Indexes
-Queries
-Security
-Password hashing
-JWT
-Role-based access
-API permissions
-CORS
-Environment variables
-👨‍💻 Author
-Gamani Prasad
-
-B.Tech — Computer Science & Engineering
+ ''' B.Tech — Computer Science & Engineering '''
 
 Contact
 
-📧 Email: gamanin@gmail.com
-
-📱 Phone: 9876543210
+📧 Email: gamanin79@gmail.com
 
 📜 Disclaimer
 
