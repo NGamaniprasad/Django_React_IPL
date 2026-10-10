@@ -2172,6 +2172,14 @@ CI/CD pipeline
 Automated tests
 Production monitoring
 💼 Resume Description
+# SCREEN SHOOTS:
+<img width="640" height="336" alt="ip1" src="https://github.com/user-attachments/assets/1be0fef9-f020-492c-a0f5-6184e1561720" />
+
+<img width="640" height="340" alt="ip2" src="https://github.com/user-attachments/assets/b33bc299-f30a-40d5-a819-e506141dff0d" />
+
+<img width="640" height="341" alt="ip3" src="https://github.com/user-attachments/assets/8e3f0db1-a081-4b19-9be4-5e535d33bed6" />
+
+
 
 
 # 👨‍💻 Author
